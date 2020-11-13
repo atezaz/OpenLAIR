@@ -1,0 +1,81 @@
+
+
+thead{
+  
+  color: grey;
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+
+.activities:nth-child(odd) {
+  background-color: #f1f1f1;
+  
+}
+
+.leraningevents:nth-child(odd) {
+  background-color: #f1f1f1;
+ 
+}
+
+.sortable {
+  cursor: pointer;
+}
+
+div {
+  display:inline-block;
+  margin: 20px;
+  
+}
+
+button {
+  display:inline-block;
+  margin: 30px;
+  
+}
+
+
+ng-multiselect-dropdown {
+  
+
+  font-size: 15px;
+  color: grey;
+ 
+  
+  
+}
+
+.mat-select {
+  display: inline-block;
+  border: 1px solid #adadad;
+  width: 100%;
+  padding: 6px 2px;
+  margin-bottom: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.1;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border-radius: 4px;
+  
+  
+}
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+.mat-form-field {
+  font-size: 13px;
+  padding: 6px 2px;
+  text-align: center;
+  line-height: 2;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: grey;
+}
+.center {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+

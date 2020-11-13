@@ -1,0 +1,27 @@
+<mat-form-field>
+  <mat-label>Learning Events</mat-label>
+  <mat-select
+    name="Select"
+    class="design"
+    [formControl]="learningevents"
+    [(value)]="selected"
+    [(ngModel)]="selected"
+    (selectionChange)="changeLearningEvents($event.value, selected)"
+    multiple
+  >
+    <mat-select-trigger> {{ selected }}</mat-select-trigger>
+
+    <mat-option
+      (click)="$event.stopPropagation()"
+      (change)="toggleSelection($event)"
+    >
+      {{ text }}
+    </mat-option>
+
+    <mat-option
+      *ngFor="let learningevents of learningEvents"
+      [value]="learningevents"
+      >{{ learningevents }}</mat-option
+    >
+  </mat-select>
+</mat-form-field>

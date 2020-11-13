@@ -1,0 +1,47 @@
+<!--Data Entry form -->
+
+<div>
+    <form [formGroup]="dataEntryForm">
+    <label class="learningEvents">Learning Events: </label>
+        <select formControlName="learningEvents">
+            <option >Create</option>
+            <option >Explore</option>
+            <option >Practice</option>
+            <option >Imitate</option>
+            <option >Receive</option>
+            <option >Debate</option>
+            <option >Meta-learn</option>
+            <option >Experiment</option>
+        </select>
+<br>
+        <label class="learningActivities">Learning Activities: </label>
+        <input type="text" formControlName="learningActivities">
+        <br>
+        <h4> Indicators </h4>
+        <div formArrayName = "indicator">
+           <div *ngFor = "let indicator of indicatorControls; let i = index" 
+           [formGroupName] = "i">        
+           <label class="indicatorName">Indicator: </label>
+                <input type="text" size="50" formControlName="indicatorName">
+           <br>
+           <label class="metrics">Meterics: </label>
+                <input type="text" size="50" formControlName="metrics">
+            <br>
+            <br>
+            <br>
+            <button mat-raised-button color= "primary" (click) = "addIndicator()">Add Indicator</button>
+            <button mat-raised-button color="warn" (click) ="removeIndicator(i)" > Delete</button>
+    </div> 
+</div>
+    <br>
+    <br>
+        <button 
+        type="submit"
+mat-raised-button 
+color='primary'
+(click)='addData(learningEvents,learningActivities,indicator,metrics)'>Save data</button>
+    
+    </form>
+
+</div>
+

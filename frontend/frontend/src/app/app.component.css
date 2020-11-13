@@ -1,0 +1,15 @@
+.multiselect-dropdown .dropdown-btn {
+    display: inline-block;
+    
+    width: 100%;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.1;
+    text-align: left;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border-radius: 0px;
+}

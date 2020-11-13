@@ -1,0 +1,27 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "serve": "node dist/server.js",
+    "dev": "babel-watch server.js",
+    "start": "babel-watch src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-rc.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.12.1",
+    "babel-watch": "^7.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.10"
+  }
+}

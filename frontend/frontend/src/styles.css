@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.multiselect-dropdown .dropdown-btn {
+    display: inline-block;
+    border: 1px solid #adadad;
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 12px !important;
+    vertical-align: middle;
+    background-image: none;
+    border-radius: 4px;   
+    line-height: 1 !important;
+    color:rgb(150, 139, 139)!important;
+    padding: 6px 2px !important;
+    font-family: Roboto,"Helvetica Neue",sans-serif !important;
+    
+}
+::ng-deep .mat-form-field-underline {
+    display: none;
+}
+
+.multiselect-dropdown .dropdown-btn .dropdown-down  {
+    display: inline-block !important;
+    border-left: 5px solid transparent !important;
+    border-right: 5px solid transparent !important;
+    border-top: 5px solid !important;
+    font-family: Roboto,"Helvetica Neue",sans-serif !important;
+    font-size:12px !important;
+    
+
+}
+.mat-input-element {
+    font-size:12px !important;
+    font-weight: 550 !important;
+    border: 1px solid rgb(177, 170, 170) !important;
+    border-radius: 4px !important;
+    margin-left: 18px !important;
+    vertical-align: 0 !important;
+    padding: 6px 2px !important;
+    font-family: Roboto,"Helvetica Neue",sans-serif !important;
+    
+}
+.mat-select{
+    padding: 6px 2px !important;
+    border: 1px solid rgb(177, 170, 170) !important;
+    font-weight: 550 !important;
+    font-family: Roboto,"Helvetica Neue",sans-serif !important;
+}
