@@ -103,13 +103,13 @@
 </ng-template>
 
 
-<table class="center">
+<table style="margin-left: 10px;" class="">
   <thead>
     <th>Learning Events/Objectives</th>
     <div>
-      <th style=" margin-left: 40px;">Learning <br />Activities</th>
+      <th style=" margin-left: 40px;">Learning Activities</th>
     </div>
-    <div style=" margin-left: 80px;"><th>Indicators</th></div>
+    <div style=" margin-left: 50px;"><th>Indicators</th></div>
   </thead>
 
   <!-- for loop for learning events -->
@@ -121,10 +121,10 @@
         class="activities"
         *ngFor="let LearningActivities of learningEvents.LearningActivities"
       >
-        <td style="width: 15; ">
+        <td style="width: 210px; ">
           {{ LearningActivities.Name }}
         </td>
-        <td style="width: 80%;">
+        <td >
           <!-- loop for indicators -->
           <tr *ngFor="let indic of LearningActivities.indicator">
             <input type="checkbox" value="indic" (change)="Checkbox($event,indic)"/>
