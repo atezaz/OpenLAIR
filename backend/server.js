@@ -36,26 +36,30 @@ router.route('/display/data').get((req,res)=>{
  
 });
 
-/////////////Instruction for data addition/////////////////
+/////////////Instruction for search data/////////////////
 
-router.route('/getsearchresults').post((req,res)=>{
-  const name = req.body.search; //John
+router.route('/getsearchmetrics').post((req,res)=>{
+  const metrics_name = req.body.search; 
+  
 
-  db.collection("treeStructure").find({'LearningActivities.indicator.metrics':  new RegExp(name)}).toArray(function(error, documents) {
+  db.collection("treeStructure").find({'LearningActivities.indicator.metrics':  new RegExp(metrics_name)}).toArray(function(error, documents) {
     if (err) throw error;
 
     res.send(documents);
 });
 });
-  // db.collection("treeStructure").find({"LearningActivities.Name" : [req.body.search] }).toArray((err,data)=>{
-  //   if(err)
-  //   console.log(err);
-  //   else
-  //   res.json(data);
-   
-  // })
+ 
+
+router.route('/getsearchindicator').post((req,res)=>{
+  const search_ind = req.body.search; 
 
 
+  db.collection("treeStructure").find({'LearningActivities.indicator.indicatorName':  { $regex : new RegExp(search_ind, "i") }}).toArray(function(error, result) {
+    if (err) throw error;
+
+    res.send(result);
+});
+});
  
 
 /////////////Instruction for data addition/////////////////

@@ -1,4 +1,13 @@
 <div *ngIf="isLoaded">
+  <span>Here you can select your <br>Learning Events/Objectives
+    <br> 
+    <span class="tooltip"><i style="font-size: 14px;">* What are Learning Events/<br>Objectives?</i>
+      <span class="tooltiptext">A learning objective is the desired outcome of a single or multiple learning event and 
+        is used to establish learning activities to achieve the overall learning outcome [12]. Learning design literature identified 
+        eight learning events: create, explore, practice, imitate, receive, debate, meta-learn, and experiment.</span>
+    </span>
+    
+  </span><br>
   <mat-form-field>
     <mat-select
       placeholder="Learning Events/Objectives"
@@ -21,6 +30,13 @@
   </mat-form-field>
 </div>
 <div>
+  <span>Here you can select your <br>learning activites </span><br>
+    <span class="tooltip"><i style="font-size: 14px;">* What are learning activites?</i>
+      <span class="tooltiptext">A study by Gruber et al. [3] took the model of learning events and added learning activities to identify its outcomes in LD. 
+        Learning activities are split into in-class methods and tools, and online methods and tools [3, 9]. Examples of in-class methods and tools are exercise, 
+        exam, presentation, discussion, demonstration, etc. On the other hand, online methods and tools are blogs, wikis, forums, photo and audio notes, online tests 
+        and quizzes, e-portfolios, etc.</span>
+    </span>
   <ng-multiselect-dropdown
     class="dropdown-menu"
     [placeholder]="'Learning Activities'"
@@ -33,16 +49,51 @@
   >
   </ng-multiselect-dropdown>
 </div>
+
 <div>
   <input
     matInput
-    [(ngModel)]="searchText"
-    placeholder="Search Meterics"
-    (change)="learningEventsChangeOnSearch(searchText)"
+    [(ngModel)]="searchInd"
+    placeholder="Search Indicator"
+    (change)="searchIndicator(searchInd)"
   />
+</div >
+
+<div>
+  <span>Here you can search by <br>Metrics?</span><br>
+  <span class="tooltip"><i style="font-size: 14px;">* What are Metrics?</i>
+    <span class="tooltiptext">Learning analytics applications collect data from the interaction between learners and LMSs. To make sense of these captured data, 
+      they need to be categorized in a corresponding unit of measurement (e.g. number of views, login/logout frequency & time, number of posts, etc.). 
+      In this paper, we refer to the units of measurements as metrics.</span>
+  </span>
+  <input
+    matInput    [(ngModel)]="searchText"
+    placeholder="Search Metrics"
+    (change)="learningEventsChangeOnSearch(searchMet)"
+  />
+</div >
+
+
+
+
+<div style="margin-left:50px" >
+<label style="color: gray; font-size: 15px;"> Seleted Indicator</label>
+  <ul style="line-height: 15%; font-size: 15px;" *ngFor="let selectInd of ind_list">
+    <li>
+      {{selectInd}}     
+     
+     </li>
+     
+ </ul>
+ 
+ <button mat-raised-button color="primary" (click)="getSelectedind(mat_list)">Download</button>
+  
 </div>
+
+
+
 <ng-template #secondDialog>
-  <h2 matDialogTitle>Meterics</h2>
+  <h2 matDialogTitle>Metrics</h2>
   <mat-dialog-content>
     <ul style="line-height: 20%" *ngFor="let mat of sp">
       <li>{{ mat }}</li>
@@ -76,7 +127,9 @@
         <td style="width: 80%;">
           <!-- loop for indicators -->
           <tr *ngFor="let indic of LearningActivities.indicator">
+            <input type="checkbox" value="indic" (change)="Checkbox($event,indic)"/>
             <a class="sortable" (click)="getMeterics(indic)">
+              
               {{ indic.indicatorName }}
             </a>
 

@@ -18,13 +18,24 @@ export class DataService {
   getdata(){
     return this.http.get(`${this.uri}/display/data`);
   }
+
+
   getsearchresult(search:any){
     const httpOptions = {
       headers: new HttpHeaders({
           'Content-Type': 'text/plain',
       })
   }
-    return this.http.post(`${this.uri}/getsearchresults`,{search, httpOptions});
+    return this.http.post(`${this.uri}/getsearchmetrics`,{search, httpOptions});
+  }
+
+  getsearchind(search:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+          'Content-Type': 'text/plain',
+      })
+  }
+    return this.http.post(`${this.uri}/getsearchindicator`,{search, httpOptions});
   }
 
   addData(LearningEvents,LearningActivities,indicator,metrics)
