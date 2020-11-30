@@ -1,4 +1,5 @@
 <div *ngIf="isLoaded">
+
   <span>Here you can select your <br>Learning Events/Objectives
     <br> 
     <span class="tooltip"><i style="font-size: 14px;">* What are Learning Events/<br>Objectives?</i>
@@ -8,6 +9,7 @@
     </span>
     
   </span><br>
+
   <mat-form-field>
     <mat-select
       placeholder="Learning Events/Objectives"
@@ -78,7 +80,7 @@
 
 <div style="margin-left:50px" >
 <label style="color: gray; font-size: 15px;"> Seleted Indicator</label>
-  <ul style="line-height: 15%; font-size: 15px;" *ngFor="let selectInd of ind_list">
+  <ul id="reset"style="line-height: 15%; font-size: 15px;" *ngFor="let selectInd of ind_list">
     <li>
       {{selectInd}}     
      
@@ -87,6 +89,9 @@
  </ul>
  
  <button mat-raised-button color="primary" (click)="getSelectedind(mat_list)">Download</button>
+ <button mat-button (click)="reset()">Reset</button>
+ 
+ 
   
 </div>
 
@@ -103,13 +108,13 @@
 </ng-template>
 
 
-<table style="margin-left: 10px;" class="">
+<table style=" margin-left: 10px;">
   <thead>
     <th>Learning Events/Objectives</th>
     <div>
       <th style=" margin-left: 40px;">Learning Activities</th>
     </div>
-    <div style=" margin-left: 50px;"><th>Indicators</th></div>
+    <div style=" margin-left: 80px;"><th>Indicators</th></div>
   </thead>
 
   <!-- for loop for learning events -->
@@ -124,7 +129,7 @@
         <td style="width: 210px; ">
           {{ LearningActivities.Name }}
         </td>
-        <td >
+        <td style="">
           <!-- loop for indicators -->
           <tr *ngFor="let indic of LearningActivities.indicator">
             <input type="checkbox" value="indic" (change)="Checkbox($event,indic)"/>

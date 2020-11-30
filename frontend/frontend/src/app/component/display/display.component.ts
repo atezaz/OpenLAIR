@@ -5,6 +5,7 @@ import { data } from "../../data.model";
 import { MatSnackBar } from "@angular/material";
 import { MatDialog } from "@angular/material/dialog";
 import { NgModel } from "@angular/forms";
+import { element } from 'protractor';
 
 @Component({
   selector: "app-display",
@@ -36,6 +37,7 @@ export class DisplayComponent implements OnInit {
   ind_list = [];
   met:any;
   mat_list = [];
+  
 
   constructor(
     private dataService: DataService,
@@ -59,9 +61,10 @@ export class DisplayComponent implements OnInit {
   }
 
   /////////////// function for learning activities selection /////////////
+
   onItemSelect(item: any) {
+    
     let p = this.selectedevent;
-    // console.log(item);
     this.dataService.getdata().subscribe((data: data[]) => {
       this.data = data;
 
@@ -76,9 +79,9 @@ export class DisplayComponent implements OnInit {
 
       if ((p! = "")) {
         this.data = event;
+        
       }
       let newArray = this.selectedItems;
-      // console.log(this.selectedItems);
       this.data.filter(function (obj) {
         obj.LearningActivities = obj.LearningActivities.filter(function (obj2) {
           return newArray.includes(obj2.Name);
@@ -87,6 +90,7 @@ export class DisplayComponent implements OnInit {
     });
   }
   onSelectAll(items: any) {
+    
     this.learningValueChange(this.selectedevent);
   }
   // function of fetching data from database
@@ -101,7 +105,7 @@ export class DisplayComponent implements OnInit {
       this.selected.push(this.options);
       this.learningValueChange("Select All");
       this.setLearningActivities(this.data);
-      //this.setLearningActivities(this.data )
+      
     });
   }
   ////////////////pop up by click Indicator to show meterics ///////////
@@ -113,24 +117,28 @@ export class DisplayComponent implements OnInit {
   }
 
   learningValueChange(p) {
+    
     this.selectedevent = p;
     this.dataService.getdata().subscribe((data: data[]) => {
       this.data = data;
       this.isLoaded = true;
       if (p == "Select All") {
+        
       } else {
         let event = this.data.filter(function (obj) {
           return p.includes(obj.LearningEvents);
         });
          this.setLearningActivities(event);
-        //  console.log(event )
+        
 
         if (p != "") {
           this.data = event;
+          
         }
       }
     });
   }
+  
 
   /////////////// display learning activities ////////////////////
   setLearningActivities(events: any) {
@@ -144,15 +152,16 @@ export class DisplayComponent implements OnInit {
         }
       }
     }
-    // console.log(this.name)
+ 
   }
 
   ///////////////////   search by metrics ///////////////
+
   learningEventsChangeOnSearch(search: any) {
     if (search) {
       this.dataService.getsearchresult(search).subscribe((data: data[]) => {
         this.data = data;
-        // console.log(this.data);
+        
       });
     } else {
       this.fetchdata();
@@ -163,37 +172,56 @@ export class DisplayComponent implements OnInit {
     if (search) {
       this.dataService.getsearchind(search).subscribe((data: data[]) => {
         this.data = data;
-        console.log(this.data);
+        
       });
     } else {
       this.fetchdata();
     }
   }
+
   checkvalue(event: any) {
+  
+    
     if (this.selectedItems.length == 0) {
-      console.log(event)
-      this.fetchdata();
+ 
+      this.learningValueChange(this.selectedevent)
     }
+    else{
+      let index=this.selectedItems.length 
+      if (index !== -1){
+        this.selectedItems.splice(index, 1);
+        this.onItemSelect(this.selectedItems)
+        
+     
+
+      }
+    }
+    
   }
 
   ////////////////// function for checkbox to select indicator indicator  //////////////////
-  Checkbox(event, selectInd) {
+
+  Checkbox(event:any, selectInd:any) {
     this.ind = selectInd.indicatorName;
     this.met = selectInd;
    // console.log(selectInd)
+   
 
     if (event.target.checked) {
       this.ind_list.push(this.ind);
       this.mat_list.push(this.met);
       
-    } else {
+    }
+    else {
       let index = this.ind_list.indexOf(this.ind);
       let index1 = this.mat_list.indexOf(this.met);
+    
     
       if (index !== -1) {
         this.ind_list.splice(index, 1);
         this.mat_list.splice(index1, 1);
       }
+      
     }
   }
 
@@ -222,4 +250,7 @@ export class DisplayComponent implements OnInit {
 
     newLink.click();
   };
+  reset(){
+    this.ind_list=[];   
+  }
 }

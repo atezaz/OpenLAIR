@@ -27,7 +27,9 @@ export class SelectCheckAllComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.model.update.emit(this.values);
+    
+    // this.model.update.emit(this.values);
+    
   }
 
   isChecked(): boolean {
