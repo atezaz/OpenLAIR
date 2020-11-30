@@ -129,7 +129,7 @@
         <td style="width: 210px; ">
           {{ LearningActivities.Name }}
         </td>
-        <td style="">
+        <td>
           <!-- loop for indicators -->
           <tr *ngFor="let indic of LearningActivities.indicator">
             <input type="checkbox" value="indic" (change)="Checkbox($event,indic)"/>
