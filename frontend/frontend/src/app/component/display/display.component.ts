@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, TemplateRef } from "@angular/core";
+import { Component, OnInit, ViewChild, QueryList, ViewChildren, ElementRef, TemplateRef } from "@angular/core";
 import { DataService } from "../../data.service";
 import { Router } from "@angular/router";
 import { data } from "../../data.model";
@@ -6,6 +6,7 @@ import { MatSnackBar } from "@angular/material";
 import { MatDialog } from "@angular/material/dialog";
 import { NgModel } from "@angular/forms";
 import { element } from 'protractor';
+
 
 @Component({
   selector: "app-display",
@@ -191,12 +192,8 @@ export class DisplayComponent implements OnInit {
       if (index !== -1){
         this.selectedItems.splice(index, 1);
         this.onItemSelect(this.selectedItems)
-        
-     
-
       }
     }
-    
   }
 
   ////////////////// function for checkbox to select indicator indicator  //////////////////
@@ -251,6 +248,17 @@ export class DisplayComponent implements OnInit {
     newLink.click();
   };
   reset(){
-    this.ind_list=[];   
+    this.ind_list=[];
+    this.uncheckAll();
   }
+
+  @ViewChildren("indicatorCheckbox") indicatorCheckboxs: QueryList<ElementRef>;
+  uncheckAll() {
+    this.indicatorCheckboxs.forEach((element) => {
+      element.nativeElement.checked = false;
+    });
+  }
+  
+
+
 }

@@ -1,29 +1,32 @@
-<div *ngIf="isLoaded">
-
-  <span>Here you can select your <br>Learning Events/Objectives
-    <br> 
-    <span class="tooltip"><i style="font-size: 14px;">* What are Learning Events/<br>Objectives?</i>
-      <span class="tooltiptext">A learning objective is the desired outcome of a single or multiple learning event and 
-        is used to establish learning activities to achieve the overall learning outcome [12]. Learning design literature identified 
-        eight learning events: create, explore, practice, imitate, receive, debate, meta-learn, and experiment.</span>
-    </span>
-    
-  </span><br>
-
-  <mat-form-field>
-    <mat-select
+<span class="OpenLAIR_Home">  <!-- Not run the demo if it is not home page --> 
+<div>
+  <span style="padding-bottom: 2px;">
+      <strong>Learning Events/Objectives</strong><br>
+        <span style="font-size: 14px;" id="tooltipEvents" data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}' title="">
+          <img width="16px" src="assets/images/question.png"> What are Learning Events <br>or Objectives?
+            <span class="toolBoxCss" id="contentEvents">
+              <p style="text-align:left;">
+                <strong>Learning Events or Objectives</strong><br/>
+                A learning objective is the desired outcome of a single or multiple learning event and <br>
+              is used to establish learning activities to achieve the overall learning outcome <a target="_blank" href="https://research.tue.nl/en/publications/teacher-learning-in-the-context-of-educational-innovation-learnin">[12]</a>. <br>Learning design literature identified 
+              eight learning events: create, explore, practice, <br>imitate, receive, debate, meta-learn, and experiment.
+              </p>
+        </span>
+      </span>
+</span>
+<br>
+  <mat-form-field >
+    <mat-select class="step1"
       placeholder="Learning Events/Objectives"
       name="Select"
       [(ngModel)]="selected"
       multiple
       #selectionModel="ngModel"
-      (valueChange)="learningValueChange($event)"
-    >
+      (valueChange)="learningValueChange($event)">
       <app-select-check-all
         [model]="selectionModel"
         [values]="options"
-        (sendCount)="learningValueChange($event)"
-      >
+        (sendCount)="learningValueChange($event)">
       </app-select-check-all>
       <mat-option *ngFor="let option of options" [value]="option">
         {{ option }}
@@ -32,54 +35,80 @@
   </mat-form-field>
 </div>
 <div>
-  <span>Here you can select your <br>learning activites </span><br>
-    <span class="tooltip"><i style="font-size: 14px;">* What are learning activites?</i>
-      <span class="tooltiptext">A study by Gruber et al. [3] took the model of learning events and added learning activities to identify its outcomes in LD. 
-        Learning activities are split into in-class methods and tools, and online methods and tools [3, 9]. Examples of in-class methods and tools are exercise, 
-        exam, presentation, discussion, demonstration, etc. On the other hand, online methods and tools are blogs, wikis, forums, photo and audio notes, online tests 
-        and quizzes, e-portfolios, etc.</span>
-    </span>
+  <strong>learning Activites</strong><br>
+    <span style="font-size: 14px;" id="tooltipActivites" data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}' title="">
+      <img width="16px" src="assets/images/question.png"> What are learning activites?
+         <span class="toolBoxCss" id="contentActivites">
+          <p style="text-align:left;">
+            <strong>Learning Activites</strong><br />
+          A study by Gruber et al. [3] took the model of learning events and added learning activities<br>
+          to identify its outcomes in LD. Learning activities are split into in-class methods and tools,<br>
+          and online methods and tools [3, 9]. Examples of in-class methods and tools are exercise, <br>exam,
+          presentation, discussion, demonstration, etc. On the other hand, online methods and <br>tools are 
+          blogs, wikis, forums, photo and audio notes, online tests and quizzes, e-portfolios, <br>etc.
+          </p>
+        </span>
+  </span>
+  <br /><br />
   <ng-multiselect-dropdown
-    class="dropdown-menu"
+    class="dropdown-menu step2"
     [placeholder]="'Learning Activities'"
     [data]="dropdownList"
     [(ngModel)]="selectedItems"
     [settings]="dropdownSettings"
     (onSelect)="onItemSelect($event)"
     (onSelectAll)="onSelectAll($event)"
-    (onDeSelect)="checkvalue($event)"
-  >
+    (onDeSelect)="checkvalue($event)">
   </ng-multiselect-dropdown>
 </div>
-
 <div>
-  <input
+  <strong>Indicators</strong><br>
+    <span style="font-size: 14px;" id="tooltipIndicators" data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}' title="">
+      <img width="16px" src="assets/images/question.png"> What are Indicators?
+         <span class="toolBoxCss" id="contentIndicators">
+          <p style="text-align:left;">
+            <strong>Indicators</strong><br />
+            Metrics are used to create indicators; an indicator is the result of the analysis of one<br>
+            or multiple metrics and gives a more comprehensive picture on a particular (abstract) <br>
+            learner status, e.g. reading comprehension, self-reflection, etc. An indicator covers a <br>
+            particular aspect of an abstract variable (e.g., student attention) by using relevant <br>
+            (measurable) items.
+          </p>
+        </span>
+  </span>
+  <br /><br />
+  <input class="step3" 
     matInput
     [(ngModel)]="searchInd"
     placeholder="Search Indicator"
     (change)="searchIndicator(searchInd)"
   />
 </div >
-
 <div>
-  <span>Here you can search by <br>Metrics?</span><br>
-  <span class="tooltip"><i style="font-size: 14px;">* What are Metrics?</i>
-    <span class="tooltiptext">Learning analytics applications collect data from the interaction between learners and LMSs. To make sense of these captured data, 
-      they need to be categorized in a corresponding unit of measurement (e.g. number of views, login/logout frequency & time, number of posts, etc.). 
-      In this paper, we refer to the units of measurements as metrics.</span>
-  </span>
-  <input
+  <strong>Metrics</strong><br>
+  <span style="font-size: 14px;" id="tooltipMetrics" data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}' title="">
+    <img width="16px" src="assets/images/question.png"> What are Metrics?
+       <span class="toolBoxCss" id="contentMetrics">
+        <p style="text-align:left;">
+          <strong>Metrics</strong><br />
+         Learning analytics applications collect data from the interaction between learners and LMSs.<br>
+         To make sense of these captured data, they need to be categorized in a corresponding unit of<br>
+         measurement (e.g. number of views, login/logout frequency & time, number of posts, etc.). In<br>
+         this paper, we refer to the units of measurements as metrics.
+        </p>
+      </span>
+</span>
+<br /><br />
+  <input class="stepMetrics"
     matInput    [(ngModel)]="searchText"
     placeholder="Search Metrics"
     (change)="learningEventsChangeOnSearch(searchMet)"
   />
-</div >
-
-
+</div>
 
 
 <div style="margin-left:50px" >
-<label style="color: gray; font-size: 15px;"> Seleted Indicator</label>
+<label style="color: gray; font-size: 15px;"> Seleted Indicator(s)</label>
   <ul id="reset"style="line-height: 15%; font-size: 15px;" *ngFor="let selectInd of ind_list">
     <li>
       {{selectInd}}     
@@ -87,12 +116,12 @@
      </li>
      
  </ul>
- 
- <button mat-raised-button color="primary" (click)="getSelectedind(mat_list)">Download</button>
+ <span style="padding-top: 16px;  padding-bottom: 16px;" >
+ <button class="stepDownload" mat-raised-button color="primary" (click)="getSelectedind(mat_list)">Download</button>
+</span>
  <button mat-button (click)="reset()">Reset</button>
  
- 
-  
+
 </div>
 
 
@@ -121,8 +150,7 @@
   <tr *ngFor="let learningEvents of data">
     <td style="width: 15; "class="leraningevents" >{{ learningEvents.LearningEvents }}</td>
     <td >
-      <tr 
-        
+      <tr
         class="activities"
         *ngFor="let LearningActivities of learningEvents.LearningActivities"
       >
@@ -132,8 +160,8 @@
         <td>
           <!-- loop for indicators -->
           <tr *ngFor="let indic of LearningActivities.indicator">
-            <input type="checkbox" value="indic" (change)="Checkbox($event,indic)"/>
-            <a class="sortable" (click)="getMeterics(indic)">
+            <input class="step4" #indicatorCheckbox type="checkbox" value="indic" (change)="Checkbox($event,indic)"/>
+            <a class="sortable stepViewMetrics" (click)="getMeterics(indic)">
               
               {{ indic.indicatorName }}
             </a>
@@ -151,3 +179,4 @@
     </td>
   </tr>
 </table> 
+</span>
