@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild, QueryList, ViewChildren, ElementRef, TemplateRef } from "@angular/core";
+import { Component, OnInit, ViewChild, QueryList, ViewChildren, ElementRef, TemplateRef, Pipe, PipeTransform } from "@angular/core";
 import { DataService } from "../../data.service";
 import { Router } from "@angular/router";
 import { data } from "../../data.model";
 import { MatSnackBar } from "@angular/material";
 import { MatDialog } from "@angular/material/dialog";
 import { NgModel } from "@angular/forms";
+import {BrowserModule, DomSanitizer} from '@angular/platform-browser'
 import { element } from 'protractor';
 
 
@@ -13,6 +14,11 @@ import { element } from 'protractor';
   templateUrl: "./display.component.html",
   styleUrls: ["./display.component.css"],
 })
+
+// @Pipe({
+//   name: 'highlight'
+// })
+
 export class DisplayComponent implements OnInit {
   @ViewChild("secondDialog", { static: true }) secondDialog: any;
   dropdownList = [];
@@ -44,7 +50,8 @@ export class DisplayComponent implements OnInit {
     private dataService: DataService,
     private router: Router,
     private snackbar: MatSnackBar,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
@@ -173,12 +180,36 @@ export class DisplayComponent implements OnInit {
     if (search) {
       this.dataService.getsearchind(search).subscribe((data: data[]) => {
         this.data = data;
-        
+
       });
     } else {
       this.fetchdata();
     }
   }
+
+  /////////////
+
+  // transform(value: any, args: any): any {
+  //   if (!args) {
+  //     return value;
+  //   }
+  //   // Match in a case insensitive maneer
+  //   const re = new RegExp(args, 'gi');
+  //   const match = value.match(re);
+
+  //   // If there's no match, just return the original value.
+  //   if (!match) {
+  //     return value;
+  //   }
+
+  //   const replacedValue = value.replace(re, "<mark>" + match[0] + "</mark>")
+  //   return this.sanitizer.bypassSecurityTrustHtml(replacedValue)
+  // }
+
+  // searchTerm: string;
+  // updateSearch(e) {
+  //   this.searchTerm = e.target.value
+  // }
 
   checkvalue(event: any) {
   
@@ -258,7 +289,4 @@ export class DisplayComponent implements OnInit {
       element.nativeElement.checked = false;
     });
   }
-  
-
-
 }

@@ -5,7 +5,7 @@ $(document).ready(function() {
       'interactive': true,
       'contentAsHTML': true,
       //'autoClose': true,
-      'trigger': 'hover',
+      'trigger': 'click',
       functionInit: function(instance, helper){
             var $origin = $(helper.origin);
           var content = $origin.find('#contentEvents').detach();
@@ -28,7 +28,7 @@ $(document).ready(function() {
         'interactive': true,
         'contentAsHTML': true,
         //'autoClose': true,
-        'trigger': 'hover',
+        'trigger': 'click',  //hover
         functionInit: function(instance, helper){
           	var $origin = $(helper.origin);
             var content = $origin.find('#contentIndicators').detach();
@@ -78,7 +78,7 @@ $(document).ready(function() {
       'interactive': true,
       'contentAsHTML': true,
       //'autoClose': true,
-      'trigger': 'hover',
+      'trigger': 'click',
       functionInit: function(instance, helper){
             var $origin = $(helper.origin);
           var content = $origin.find('#contentActivites').detach();

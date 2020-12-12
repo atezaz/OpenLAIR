@@ -3,7 +3,7 @@
   <span style="padding-bottom: 2px;">
       <strong>Learning Events/Objectives</strong><br>
         <span style="font-size: 14px;" id="tooltipEvents" data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}' title="">
-          <img width="16px" src="assets/images/question.png"> What are Learning Events <br>or Objectives?
+          <img width="16px" src="assets/images/question.png"> Click here for more details
             <span class="toolBoxCss" id="contentEvents">
               <p style="text-align:left;">
                 <strong>Learning Events or Objectives</strong><br/>
@@ -37,13 +37,13 @@
 <div>
   <strong>learning Activites</strong><br>
     <span style="font-size: 14px;" id="tooltipActivites" data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}' title="">
-      <img width="16px" src="assets/images/question.png"> What are learning activites?
+      <img width="16px" src="assets/images/question.png"> Click here for more details
          <span class="toolBoxCss" id="contentActivites">
           <p style="text-align:left;">
             <strong>Learning Activites</strong><br />
-          A study by Gruber et al. [3] took the model of learning events and added learning activities<br>
+          A study by Gruber et al. <a target="_blank" href="https://www.researchgate.net/publication/334170760_Design_Thinking_for_Technology_Enhanced_Learning">[3]</a> took the model of learning events and added learning activities<br>
           to identify its outcomes in LD. Learning activities are split into in-class methods and tools,<br>
-          and online methods and tools [3, 9]. Examples of in-class methods and tools are exercise, <br>exam,
+          and online methods and tools [<a target="_blank" href="https://www.researchgate.net/publication/334170760_Design_Thinking_for_Technology_Enhanced_Learning">3</a>, <a target="_blank" href="https://www.researchgate.net/publication/222945649_Factors_affecting_teachers'_participation_in_professional_learning_activities">9</a>]. Examples of in-class methods and tools are exercise, <br>exam,
           presentation, discussion, demonstration, etc. On the other hand, online methods and <br>tools are 
           blogs, wikis, forums, photo and audio notes, online tests and quizzes, e-portfolios, <br>etc.
           </p>
@@ -64,7 +64,7 @@
 <div>
   <strong>Indicators</strong><br>
     <span style="font-size: 14px;" id="tooltipIndicators" data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}' title="">
-      <img width="16px" src="assets/images/question.png"> What are Indicators?
+      <img width="16px" src="assets/images/question.png"> Click here for more details
          <span class="toolBoxCss" id="contentIndicators">
           <p style="text-align:left;">
             <strong>Indicators</strong><br />
@@ -77,7 +77,8 @@
         </span>
   </span>
   <br /><br />
-  <input class="step3" 
+  <input 
+  class="step3" 
     matInput
     [(ngModel)]="searchInd"
     placeholder="Search Indicator"
@@ -87,10 +88,10 @@
 <div>
   <strong>Metrics</strong><br>
   <span style="font-size: 14px;" id="tooltipMetrics" data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}' title="">
-    <img width="16px" src="assets/images/question.png"> What are Metrics?
+    <img width="16px" src="assets/images/question.png"> Click here for more details
        <span class="toolBoxCss" id="contentMetrics">
         <p style="text-align:left;">
-          <strong>Metrics</strong><br />
+          <strong>Metrics</strong><br/>
          Learning analytics applications collect data from the interaction between learners and LMSs.<br>
          To make sense of these captured data, they need to be categorized in a corresponding unit of<br>
          measurement (e.g. number of views, login/logout frequency & time, number of posts, etc.). In<br>
@@ -157,12 +158,11 @@
         <td style="width: 210px; ">
           {{ LearningActivities.Name }}
         </td>
-        <td>
+        <td class="highlightIndicators">
           <!-- loop for indicators -->
-          <tr *ngFor="let indic of LearningActivities.indicator">
+          <tr  *ngFor="let indic of LearningActivities.indicator" >
             <input class="step4" #indicatorCheckbox type="checkbox" value="indic" (change)="Checkbox($event,indic)"/>
-            <a class="sortable stepViewMetrics" (click)="getMeterics(indic)">
-              
+            <a  class="sortable stepViewMetrics" (click)="getMeterics(indic)">
               {{ indic.indicatorName }}
             </a>
 
