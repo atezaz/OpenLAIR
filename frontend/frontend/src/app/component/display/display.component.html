@@ -130,7 +130,7 @@
 <ng-template #secondDialog>
   <h2 matDialogTitle>Metrics</h2>
   <mat-dialog-content>
-    <ul style="line-height: 20%" *ngFor="let mat of sp">
+    <ul  *ngFor="let mat of sp">  <!-- style="line-height: 20%" -->
       <li>{{ mat }}</li>
     </ul>
   </mat-dialog-content>

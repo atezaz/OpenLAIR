@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "build": "babel src --out-dir dist",
-    "serve": "node dist/server.js",
-    "dev": "babel-watch server.js",
-    "start": "babel-watch src/server.js"
+    "serve": "node dist/app.js",
+    "dev": "babel-watch app.js",
+    "start": "babel-watch src/app.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "intro.js": "^3.1.0",
     "mongoose": "^5.11.0"

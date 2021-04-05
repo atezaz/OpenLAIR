@@ -6,14 +6,13 @@ import {HttpClient,HttpHeaders} from '@angular/common/http';
 })
 export class DataService {
 
-  uri='http://localhost:4000';
-
+ //uri='http://localhost:3001';
+uri = 'https://csspreparation.academy/openlair'
+//68.65.123.130
   
   constructor(private http: HttpClient) { 
     
   }
-
-
 
   getdata(){
     return this.http.get(`${this.uri}/display/data`);

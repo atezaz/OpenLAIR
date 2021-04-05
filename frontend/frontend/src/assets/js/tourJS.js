@@ -1,10 +1,10 @@
 
     $(document).ready(function(){
-        $("#myTourBtn").hide();
-        if($('span').is('.OpenLAIR_Home')){      //  Not run the demo if it is not home page
-          setTimeout(function(){  myTour(); }, 1500);
-          $("#myTourBtn").show();
-        }
+      //  $("#myTourBtn").hide();
+       // if($('span').is('.OpenLAIR_Home')){      //  Not run the demo if it is not home page
+        //  setTimeout(function(){  myTour(); }, 1500);
+        //  $("#myTourBtn").show();
+       // }
         $('#myTourBtn').click(myTour);
       });
   
@@ -34,12 +34,12 @@
             position: 'right'
           },
           {
-            element: '.step4',
+            element: document.querySelector('.highlightIndicators .step4'),
             intro: 'Step 4: Here you can select (x) the Indicators you want.',
             position: 'bottom'
           },
           {
-            element: '.stepViewMetrics',
+            element: document.querySelector('.highlightIndicators .stepViewMetrics'),
             intro: 'Step 5: If you want to see the Metrics/Measurements CLICK on the Indicator.',
             position: 'right'
           },
