@@ -18,14 +18,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddDataComponent } from './component/add-data/add-data.component';
 import{HeaderComponent} from './component/header/header.component';
-import { FilterPipe} from './component/display/filter.pipe';
+import { SanitizeHtmlPipe } from './component/display/filter.pipe';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {DataService} from './data.service';
 import { DisplayComponent } from './component/display/display.component';
 import { DropdownComponent } from './component/dropdown/dropdown.component'; 
-import { ReferanceComponent } from './component/referance/referance.component';
+import { ReferanceComponent } from './component/reference/referance.component';
 import { SelectCheckAllComponent } from './component/display/select-check-all.component';
 
 
@@ -36,7 +36,7 @@ import { SelectCheckAllComponent } from './component/display/select-check-all.co
 
 const routes:Routes=[
   {path:'add/data',component:AddDataComponent},
-  {path:'referance',component:ReferanceComponent},
+  {path:'reference',component:ReferanceComponent},
   
   {path:'display/data',component:DisplayComponent},
   {path:'',redirectTo:'display/data',pathMatch: 'full' }
@@ -48,7 +48,7 @@ const routes:Routes=[
     AddDataComponent,
     HeaderComponent,
     DisplayComponent,
-    FilterPipe,
+    SanitizeHtmlPipe ,
     DropdownComponent,
     SelectCheckAllComponent,
     ReferanceComponent,

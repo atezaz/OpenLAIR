@@ -15,18 +15,15 @@ import { element } from 'protractor';
   styleUrls: ["./display.component.css"],
 })
 
-// @Pipe({
-//   name: 'highlight'
-// })
 
 export class DisplayComponent implements OnInit {
   @ViewChild("secondDialog", { static: true }) secondDialog: any;
-  dropdownList = [];
-  selectedItems = [];
+  dropdownList = []; //learning activities dropdown
+  selectedItems = [];   //learning activities dropdown
   name = [];
   dropdownSettings: any;
   data: any;
-  options = [];
+  options = [];  // learning events options
   mat: any;
   Events: string;
   learningEvents = [];
@@ -71,7 +68,7 @@ export class DisplayComponent implements OnInit {
   /////////////// function for learning activities selection /////////////
 
   onItemSelect(item: any) {
-    
+    //console.log(item);
     let p = this.selectedevent;
     this.dataService.getdata().subscribe((data: data[]) => {
       this.data = data;
@@ -81,8 +78,7 @@ export class DisplayComponent implements OnInit {
         return p.includes(obj.LearningEvents);
         
       });
-   
-
+  
       this.setLearningActivities(event);
 
       if ((p! = "")) {
@@ -98,9 +94,9 @@ export class DisplayComponent implements OnInit {
     });
   }
   onSelectAll(items: any) {
-    
     this.learningValueChange(this.selectedevent);
   }
+
   // function of fetching data from database
   fetchdata() {
     this.dataService.getdata().subscribe((data: data[]) => {
@@ -227,12 +223,12 @@ export class DisplayComponent implements OnInit {
     }
   }
 
-  ////////////////// function for checkbox to select indicator indicator  //////////////////
+  ////////////////// function for checkbox to select indicator   //////////////////
 
   Checkbox(event:any, selectInd:any) {
     this.ind = selectInd.indicatorName;
     this.met = selectInd;
-   // console.log(selectInd)
+  
    
 
     if (event.target.checked) {
@@ -255,20 +251,49 @@ export class DisplayComponent implements OnInit {
 
  
   getSelectedind = (x) => {
+    const indicator: any = [];
     let data = x;
 
+
+
+//printing senario
+
+    console.log("For your particular senario your learning objective(s) is/are ", this.selectedevent[0]);
+    console.log("The learning activities are ", this.selectedItems[0]);
+    console.log("The possible indicators are ", data[0].indicatorName);
+    console.log("and there metrics are ", data[0].metrics);
+
+
+
+
+    data.forEach(element => {
+
+      const o = { [element.indicatorName]: element.metrics.split(",") };
+
+      indicator.push(o);
+
+      /// other properties and values
+    });
+
+    
+    //console.log(indicator);
+
+    // console.log(new_obj);
+    //     let json_string=JSON.stringify(new_obj);
+
+    //     let array2 = JSON.parse("[" +  json_string + "]");
+    //    console.log(array2);
+
     // Convert the text to BLOB.
-    let textToBLOB = new Blob([JSON.stringify(data)], {type : 'application/json'});
-   
-    let sFileName = "indicator.json"; // The file to save the data.
+    let textToBLOB = new Blob([JSON.stringify({
+      "indicator": indicator
+    })], { type: 'application/json' });
+
+    let sFileName = "indicators.json"; // The file to save the data.
 
     let newLink = document.createElement("a");
     newLink.download = sFileName;
-    if (textToBLOB.size == 2) {
-      
-      window.alert("No indicator is selected");
-      
-    } else if ((window as any).webkitURL != null) {
+    if ((window as any).webkitURL != null) {
       newLink.href = (window as any).webkitURL.createObjectURL(textToBLOB);
     } else {
       newLink.href = window.URL.createObjectURL(textToBLOB);

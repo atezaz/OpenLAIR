@@ -2,7 +2,7 @@
   "name": "node",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "build": "babel src --out-dir dist",
     "serve": "node dist/app.js",
@@ -14,16 +14,16 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.0.0-rc.1",
-    "@babel/core": "^7.12.9",
+    "@babel/core": "^7.13.14",
     "@babel/node": "^7.0.0-rc.1",
-    "@babel/preset-env": "^7.12.7",
-    "babel-watch": "^7.0.0"
+    "@babel/preset-env": "^7.13.12",
+    "babel-watch": "^7.4.1"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "intro.js": "^3.1.0",
-    "mongoose": "^5.11.0"
+    "intro.js": "^3.4.0",
+    "mongoose": "^5.12.3"
   }
 }

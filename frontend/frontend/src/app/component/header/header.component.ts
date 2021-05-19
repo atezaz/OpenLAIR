@@ -13,9 +13,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-  referances(){
+  references(){
   
-    this.router.navigate(['/referance'] );
+    this.router.navigate(['/reference'] );
     //this.router.navigate([]).then(result => {  window.open( `/referance`, '_blank'); });
   }
   metrics(){

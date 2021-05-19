@@ -199,7 +199,11 @@ exports.applyPaths = function applyPaths(fields, schema) {
     schema.eachPath(function(path, type) {
       if (prefix) path = prefix + '.' + path;
 
-      const addedPath = analyzePath(path, type);
+      let addedPath = analyzePath(path, type);
+      // arrays
+      if (addedPath == null && type.$isMongooseArray && !type.$isMongooseDocumentArray) {
+        addedPath = analyzePath(path, type.caster);
+      }
       if (addedPath != null) {
         addedPaths.push(addedPath);
       }
@@ -282,6 +286,14 @@ exports.applyPaths = function applyPaths(fields, schema) {
 function makeLean(val) {
   return function(option) {
     option.options || (option.options = {});
+
+    if (val != null && Array.isArray(val.virtuals)) {
+      val = Object.assign({}, val);
+      val.virtuals = val.virtuals.
+        filter(path => typeof path === 'string' && path.startsWith(option.path + '.')).
+        map(path => path.slice(option.path.length + 1));
+    }
+
     option.options.lean = val;
   };
 }

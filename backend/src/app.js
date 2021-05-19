@@ -209,6 +209,8 @@ else if(req.body.LearningEvents=="Explore"){
 });
 });
 
- //app.get('/',(req,res)=> res.send('hello world'));
-app.use('/', router);
-app.listen(3001,()=>console.log("Express server is running on port 3001"));
+app.get("/" + BASE_ROUTE, (req,res)=> res.send('hello world'));
+app.use("/" + BASE_ROUTE, router);
+
+app.listen(PORT, () => console.log(`Express server is running on port ${PORT}`)
+);

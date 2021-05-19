@@ -79,3 +79,6 @@ ng-multiselect-dropdown {
   margin-right: 10%;
 }
 
+.highlightText {
+  background: yellow;
+}
