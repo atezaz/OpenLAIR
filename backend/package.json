@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src --out-dir dist",
     "serve": "node dist/app.js",
-    "dev": "babel-watch app.js",
+    "dev": "babel-watch src/app.js",
     "start": "babel-watch src/app.js"
   },
   "keywords": [],

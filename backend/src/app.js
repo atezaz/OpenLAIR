@@ -6,6 +6,7 @@ import mongoose from 'mongoose';
 import data from './models/data';
 
 
+
 var mongo = require('mongodb');
 var MongoClient = require('mongodb').MongoClient;
 var mongoURL = process.env["MONGO_URL"] || "mongodb://localhost:27017/"
@@ -18,6 +19,15 @@ const router=express.Router();
 app.use(cors());
 app.use(bodyParser.json());
 
+// app.use((req, res, next)=>{  
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader(  
+//     "Access-Control-Allow-Headers",  
+//     "Origin, X-Requested-With, Content-Type, Accept");
+//     res.setHeader("Access-Control-Allow-Methods",  
+//     "GET, POST, PATCH, DELETE, OPTIONS");
+//   next();  
+// }); 
 
 MongoClient.connect(mongoURL, {useUnifiedTopology: true}, function(err, db) {
   console.log("Mongodb connected successfully");

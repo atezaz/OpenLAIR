@@ -6,7 +6,7 @@ import {HttpClient,HttpHeaders} from '@angular/common/http';
 })
 export class DataService {
 
-uri='http://localhost:3001';
+uri='http://localhost:3001/openlair';
 //uri = 'https://programmingzen.org/openlair'
 //68.65.123.130    OLD
 //198.187.29.73

@@ -53,7 +53,7 @@ export class DisplayComponent implements OnInit {
 
   ngOnInit() {
     this.fetchdata();
-
+    this.loadScript();
     this.dropdownSettings = {
       singleSelection: false,
       idField: "item_id",
@@ -306,6 +306,17 @@ export class DisplayComponent implements OnInit {
   reset(){
     this.ind_list=[];
     this.uncheckAll();
+  }
+
+  //will solve the issue of comming back from another page
+  loadScript() {
+    let node = document.createElement("script"); // create script tag
+    node.src = "assets/js/tooltipJS.js"; // set source
+    node.type = "text/javascript";
+    node.async = true; // makes script run asynchronously
+    node.charset = "utf-8";
+    // append to head of document
+    document.getElementsByTagName("head")[0].appendChild(node);
   }
 
   @ViewChildren("indicatorCheckbox") indicatorCheckboxs: QueryList<ElementRef>;
