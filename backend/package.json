@@ -1,7 +1,6 @@
 {
   "name": "node",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "build": "babel src --out-dir dist",
@@ -20,10 +19,15 @@
     "babel-watch": "^7.4.1"
   },
   "dependencies": {
+    "connect-multiparty": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "intro.js": "^3.4.0",
-    "mongoose": "^5.12.3"
-  }
+    "mongoose": "^5.12.3",
+    "pdf-parse": "^1.1.1",
+    "pdfreader": "^1.2.11",
+    "stopword": "^1.0.11"
+  },
+  "description": ""
 }

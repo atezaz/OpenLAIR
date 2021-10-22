@@ -85,12 +85,17 @@ class Monitor extends EventEmitter {
         raw: false,
         promoteLongs: true,
         promoteValues: true,
-        promoteBuffers: true
+        promoteBuffers: true,
+        bsonRegExp: true
       }
     );
 
     // ensure no authentication is used for monitoring
     delete connectOptions.credentials;
+
+    // ensure encryption is not requested for monitoring
+    delete connectOptions.autoEncrypter;
+
     this.connectOptions = Object.freeze(connectOptions);
   }
 
@@ -222,9 +227,10 @@ function checkServer(monitor, callback) {
       }
 
       const isMaster = result.result;
-      const duration = isAwaitable
-        ? monitor[kRTTPinger].roundTripTime
-        : calculateDurationInMs(start);
+      const rttPinger = monitor[kRTTPinger];
+
+      const duration =
+        isAwaitable && rttPinger ? rttPinger.roundTripTime : calculateDurationInMs(start);
 
       monitor.emit(
         'serverHeartbeatSucceeded',

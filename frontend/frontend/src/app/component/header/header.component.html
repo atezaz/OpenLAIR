@@ -1,12 +1,14 @@
-
 <div class="header">
-    <mat-toolbar color='primary'><span class="step0">  <a  href="https://atezaz.github.io/"><img style="height: 58px;  padding-top: 8px;" src="assets/images/logo.png"></a></span> 
-        <span class="example-spacer"></span> 
-        
-    
-   <!-- <a href="#" onclick="myTour()">Start Tour</a> --> 
-    <!--<a mat-button class="stepReferences"  (click)='references()'target="_blank">References</a>  --> 
-    <a mat-button class="stepReferences"  href="https://atezaz.github.io/references.html" target="_blank">References</a>
-    <button class="mat-button mat-button-base stepStartTour" id="myTourBtn">Start Tour<img width="15px" src="assets/images/tour.png"></button>
-</mat-toolbar>
+  <mat-toolbar color='primary'><span class="step0"> <a  routerLink="display/data"><img
+          style="height: 58px;  padding-top: 8px;" src="assets/images/logo.png"></a></span>
+    <span class="example-spacer"></span>
+
+
+    <!-- <a href="#" onclick="myTour()">Start Tour</a> -->
+    <a mat-button class="stepReferences"  (click)='references()'target="_blank">References</a> 
+    <!-- <a mat-button class="stepReferences" (click)='admin()'>Login</a> -->
+    <!-- <a mat-button class="stepReferences" href="https://atezaz.github.io/references.html" target="_blank">References</a> -->
+    <button class="mat-button mat-button-base stepStartTour" id="myTourBtn">Start Tour <img width="15px"
+        src="assets/images/tour.png"></button>
+  </mat-toolbar>
 </div>

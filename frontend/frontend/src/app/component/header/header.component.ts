@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from '../../data.service';
+import { DataService } from '../../data.service';
 import { Router } from "@angular/router";
 
 @Component({
@@ -9,19 +9,22 @@ import { Router } from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private dataService:DataService,private router: Router) { }
+  constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
   }
-  references(){
-  
-    this.router.navigate(['/reference'] );
+  references() {
+
+    this.router.navigate(['/reference']);
     //this.router.navigate([]).then(result => {  window.open( `/referance`, '_blank'); });
   }
-  metrics(){
-  
+  admin() {
+    this.router.navigate(['/login']);
+  }
+  metrics() {
+
     // this.router.navigate(['/referance'] );
-    this.router.navigate([]).then(result => {  window.open( `/metrics`, '_blank'); });
+    this.router.navigate([]).then(result => { window.open(`/metrics`, '_blank'); });
   }
 }
 

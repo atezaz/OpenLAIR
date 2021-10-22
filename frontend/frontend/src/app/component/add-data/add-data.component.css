@@ -1,0 +1,173 @@
+.card {
+
+  background: white;
+  margin: 15px;
+  height: 75%;
+  width: 50%;
+  box-shadow: 1px 1px 2px 2px #888888;
+  padding-bottom: 24px;
+  position: absolute;
+  transform: translate(50%, 50%);
+  bottom: 40%;
+  right: 50%;
+  overflow: auto;
+
+
+}
+
+
+
+#title {
+  text-align: center;
+  font-weight: normal;
+  margin: 24px;
+  padding: 24px;
+  background-color: #3F51B5;
+  color: white;
+}
+
+#dropdown {
+  margin: 16px;
+  font-weight: bold;
+  font-size: 16px;
+
+
+}
+
+
+#dropdown>mat-select {
+  height: 20px;
+  width: 200px;
+  padding-left: 25px;
+  font-size: 16px;
+  font-weight: normal;
+  margin-left: 34px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+
+}
+
+#dropdown>label {
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+option {
+  color: white;
+  border: none;
+}
+
+#activities {
+  margin: 16px;
+  padding-left: 12px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#activities>mat-select {
+  height: 20px;
+  width: 200px;
+  padding-left: 25px;
+  font-size: 16px;
+  font-weight: normal;
+  margin-left: 32px;
+
+  border: none;
+  border-radius: 4px;
+  color: white;
+
+}
+
+#activities>label {
+  padding-right: 24px;
+  padding-left: 24px;
+
+}
+
+#indicators {
+  margin-top: 16px;
+  padding-left: 30px;
+  font-weight: bold;
+  font-size: 16px;
+
+}
+
+#indicators>label {
+
+  padding-right: 84px;
+  padding-left: 24px;
+
+}
+
+#indicators>input {
+  font-size: 16px;
+  font-weight: normal;
+
+  margin-left: 32px;
+  width: 300px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 16px;
+
+}
+
+#metrics {
+  margin-top: 16px;
+  padding-left: 30px;
+  font-weight: bold;
+  font-size: 16px;
+
+}
+
+.metrics {
+
+  padding-right: 140px;
+  padding-left: 24px;
+  font-size: medium;
+  margin-left: 24px;
+
+
+}
+
+#metrics>input {
+  font-size: 16px;
+  font-weight: normal;
+  background-color: #3F51B5;
+  border: none;
+  border-radius: 4px;
+  width: 400px;
+  height: 30px;
+  color: white;
+}
+
+.btn {
+  margin-top: 24px;
+  padding-right: 92px;
+  padding-left: 24px;
+  text-align: center;
+}
+
+#btn1 {
+  margin-left: 12px;
+  margin-right: 24px;
+}
+
+#btn2 {
+  margin-top: 12px;
+  margin-right: 24px;
+}
+
+#savebtn {
+
+  margin: 40px;
+  padding-left: 200px;
+}
+
+.formfield * {
+  vertical-align: middle;
+  margin-top: 16px;
+  font-weight: bold;
+  font-size: 16px;
+
+}

@@ -2,17 +2,21 @@
   <!-- Not run the demo if it is not home page -->
   <div>
     <span style="padding-bottom: 2px;">
-      <strong>Learning Events/Objectives</strong><br>
-      <span style="font-size: 14px;" id="tooltipEvents"
+      <strong>Learning Events</strong><br>
+      <span class="stepDefine" style="font-size: 14px;" id="tooltipEvents"
         data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}' title="">
         <img width="16px" src="assets/images/question.png"> Click here for more details
         <span class="toolBoxCss" id="contentEvents">
           <p style="text-align:left;">
-            <strong>Learning Events or Objectives</strong><br />
-            A learning objective is the desired outcome of a single or multiple learning event and is used to establish learning <br> 
-            activities to achieve the overall learning outcome <a target="_blank" href="https://research.tue.nl/en/publications/teacher-learning-in-the-context-of-educational-innovation-learnin">[12]</a>.
-            Learning design literature identified eight learning events: <br>create, explore, practice, imitate, receive, debate, meta-learn/Elf-reflect, and experiment <a target="_blank"
-            href="http://www.labset.net/media/prod/8LEM.pdf">[1]</a>, <a target="_blank" href="https://www.tandfonline.com/doi/abs/10.1080/10494820701343694">[2]</a>.
+            <strong>Learning Events</strong><br />
+            A learning objective is the desired outcome of a single or multiple learning event and is used to establish
+            learning <br>
+            activities to achieve the overall learning outcome <a target="_blank"
+              href="https://research.tue.nl/en/publications/teacher-learning-in-the-context-of-educational-innovation-learnin">[13]</a>.
+            Learning design literature identified eight learning events: <br>create, explore, practice, imitate,
+            receive, debate, meta-learn/Elf-reflect, and experiment <a target="_blank"
+              href="http://www.labset.net/media/prod/8LEM.pdf">[1]</a>, <a target="_blank"
+              href="https://www.tandfonline.com/doi/abs/10.1080/10494820701343694">[2]</a>.
             <br><br>
             <img width="800px" src="assets/images/events.png">
           </p>
@@ -21,7 +25,7 @@
     </span>
     <br>
     <mat-form-field>
-      <mat-select class="step1" placeholder="Learning Events/Objectives" name="Select" [(ngModel)]="selected" multiple
+      <mat-select class="step1" placeholder="Learning Events" name="Select" [(ngModel)]="selected" multiple
         #selectionModel="ngModel" (valueChange)="learningValueChange($event)">
         <app-select-check-all [model]="selectionModel" [values]="options" (sendCount)="learningValueChange($event)">
         </app-select-check-all>
@@ -63,17 +67,19 @@
     <strong>Indicators</strong><br>
     <span style="font-size: 14px;" id="tooltipIndicators"
       data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}' title="">
-      <span class="stepDefine"><img width="16px" src="assets/images/question.png"> Click here for more details</span>
+      <span><img width="16px" src="assets/images/question.png"> Click here for more details</span>
       <span class="toolBoxCss" id="contentIndicators">
         <p style="height: 572px;">
           <strong>Indicators</strong><br />
           Metrics (measurements) are used to create indicators; an indicator is the result of the analysis of one<br>
-          or multiple metrics (e.g. number of views, login/logout frequency & time, number of posts, etc.) and gives <br>
+          or multiple metrics (e.g. number of views, login/logout frequency & time, number of posts, etc.) and gives
+          <br>
           a more comprehensive picture on a particular (abstract) learner status, e.g. reading comprehension, <br>
-          self-reflection, etc. An indicator covers a particular aspect of an abstract variable (e.g., student engagement)<br>
-           by using relevant (measurable) items.<br><br>
-           Here is an example of Student Engagement in Moodle. <br>
-           <img src="assets/images/engagement.jpg">
+          self-reflection, etc. An indicator covers a particular aspect of an abstract variable (e.g., student
+          engagement)<br>
+          by using relevant (measurable) items.<br><br>
+          Here is an example of Student Engagement in Moodle. <br>
+          <img src="assets/images/engagement.jpg">
         </p>
       </span>
     </span>
@@ -101,7 +107,6 @@
       (change)="learningEventsChangeOnSearch(searchText)" />
   </div>
 
-
   <div style="margin-left:50px">
     <label style="color: gray; font-size: 15px;"> Seleted Indicator(s)</label>
     <ul id="reset" style="line-height: 15%; font-size: 15px;" *ngFor="let selectInd of ind_list">
@@ -112,15 +117,10 @@
 
     </ul>
     <span style="padding-top: 16px;  padding-bottom: 16px;">
-      <button class="stepDownload" mat-raised-button color="primary"
-        (click)="getSelectedind(mat_list)">Download</button>
+      <button class="stepDownload" mat-raised-button color="primary" (click)="getSelectedind(mat_list)">Download JSON</button>
     </span>
     <button mat-button (click)="reset()">Reset</button>
-
-
   </div>
-
-
 
   <ng-template #secondDialog>
     <h2 matDialogTitle>Metrics</h2>
@@ -133,10 +133,9 @@
     <button mat-button mat-dialog-close>Close</button>
   </ng-template>
 
-
   <table style=" margin-left: 10px;">
     <thead>
-      <th>Learning Events/Objectives</th>
+      <th>Learning Events</th>
       <div>
         <th style=" margin-left: 40px;">(Learning) Activities</th>
       </div>
@@ -155,14 +154,14 @@
       </td>
       <td class="highlightIndicators">
         <!-- loop for indicators -->
-        <tr *ngFor="let indic of LearningActivities.indicator" >
-          <input class="step4" #indicatorCheckbox type="checkbox" value="indic" (change)="Checkbox($event,indic)" />
-    
-          <a class="sortable stepViewMetrics" (click)="getMeterics(indic)">
-            <span [innerHTML]=" indic.indicatorName  | sanitizeHtml : searchInd">
-              {{ indic.indicatorName  }}
-            </span>
-           </a>
+    <tr *ngFor="let indic of LearningActivities.indicator">
+      <input class="step4" #indicatorCheckbox type="checkbox" value="indic" (change)="Checkbox($event,indic)" />
+
+      <a class="sortable stepViewMetrics" (click)="getMeterics(indic)">
+        <span [innerHTML]=" indic.indicatorName  | sanitizeHtml : searchInd">
+          {{ indic.indicatorName  }}
+        </span>
+      </a>
       <td *ngIf="searchText">
     <tr>
       <a class="sortable">

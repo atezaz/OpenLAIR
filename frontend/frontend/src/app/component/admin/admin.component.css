@@ -1,0 +1,83 @@
+.container {
+
+  background: white;
+
+  height: auto;
+  width: auto;
+
+  box-shadow: 1px 1px 2px 2px #888888;
+  padding-bottom: 24px;
+  position: absolute;
+  transform: translate(50%, 50%);
+  bottom: 50%;
+  right: 50%;
+
+
+
+}
+
+#title {
+  text-align: center;
+  font-weight: normal;
+  padding: 24px;
+  background-color: #3F51B5;
+  color: white;
+}
+
+#username {
+  margin: 45px;
+  text-align: center;
+  margin-top: 25px;
+  padding-left: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#password {
+  margin: 45px;
+  text-align: center;
+  margin-top: 25px;
+  padding-left: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+label {
+  padding-right: 20px;
+  padding-left: 16px;
+}
+
+input {
+  font-size: 16px;
+  font-weight: normal;
+  background-color: #3F51B5;
+  border: none;
+  border-radius: 4px;
+  width: 180px;
+  height: 28px;
+  color: white;
+
+}
+
+#submit {
+  text-align: center;
+  margin: 40px;
+
+}
+
+#submit>button {
+  background-color: #3F51B5;
+  color: white;
+}
+
+.alert {
+  text-align: center;
+  color: red;
+  font-size: small;
+  margin: 0;
+}
+
+.submitbtn:disabled {
+  cursor: not-allowed;
+
+}
