@@ -1,0 +1,28 @@
+<SELECT id="list" (change)="updateChart($event)">
+  <option VALUE="A">Video interactions</option>
+  <option VALUE="B">Reading activities</option>
+  <option VALUE="C">Assignment activities</option>
+  <option VALUE="D">Dashboard access</option>
+</SELECT>
+<div class="example">
+  <highcharts-chart
+    [Highcharts]="Highcharts"
+    [options]="chartOptions"
+    style="width: 50%; height: 400px; display: block; float: left"
+  ></highcharts-chart>
+</div>
+
+<div class="example">
+  <highcharts-chart
+    [Highcharts]="Highcharts"
+    [options]="chartOptions2"
+    style="width: 50%; height: 400px; display: block; float: left"
+  ></highcharts-chart>
+</div>
+
+<!-- 
+<figure class="highcharts-figure">
+  <div id="container-speed" class="chart-container"></div>
+  <div id="container-rpm" class="chart-container"></div>
+</figure>
+-->

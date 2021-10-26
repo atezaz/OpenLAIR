@@ -1,0 +1,37 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.main-content {
+  grid-column: span 6;
+}
+
+::ng-deep .mat-form-field-infix {
+  width: 250px !important;
+}
+
+::ng-deep .mat-form-field {
+  position: sticky !important;
+  z-index: 100;
+  top: 0;
+}
+
+.mat-elevation-z5 {
+  position: relative;
+}
+
+.sticky {
+  top: 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .main-content {
+    grid-column: span 12;
+  }
+}
+@media screen and (max-width: 480px) {
+  .main-content {
+    grid-column: span 12;
+  }
+}

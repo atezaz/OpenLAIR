@@ -1,0 +1,28 @@
+<div
+  class="buttons"
+  id="btn-menu"
+  [ngClass]="{ 'mat-elevation-z5': true, sticky: isSticky }"
+>
+  <button
+    class="backBtn"
+    mat-raised-button
+    color="primary"
+    routerLink="/display/data"
+  >
+    Back
+  </button>
+
+  <button
+    class="downloadCharts"
+    mat-raised-button
+    color="primary"
+    (click)="downloadPage()"
+  >
+    Download
+  </button>
+</div>
+<app-chart-manager> </app-chart-manager>
+
+<div class="footer">
+  <p>Dashboard is rendered from OpenLAIR.</p>
+</div>
