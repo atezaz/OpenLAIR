@@ -1,36 +1,60 @@
-<mat-form-field appearance="fill">
-  <mat-select
-    [formControl]="indicators"
-    multiple
-    [ngClass]="{ 'mat-elevation-z5': true, sticky: isSticky }"
-    placeholder="Indicators"
-    [ngModel]="dropdownItems"
+<div
+  class="buttons"
+  id="btn-menu"
+  [ngClass]="{ 'mat-elevation-z5': true, sticky: isSticky }"
+>
+  <button
+    class="backBtn"
+    mat-raised-button
+    color="primary"
+    routerLink="/display/data"
   >
-    <mat-select-trigger>
-      {{ indicators.value ? indicators.value[0] : "" }}
-      <span *ngIf="indicators.value?.length > 1" class="selection">
-        (+{{ indicators.value.length - 1 }}
-        {{ indicators.value?.length === 2 ? "other" : "others" }})
-      </span>
-    </mat-select-trigger>
-    <!-- These are the indicators that are not linked -->
-    <mat-option
-      *ngFor="let indicator of dropdownItems"
-      [value]="indicator"
-      [ngStyle]="{
-        color:
-          indicator.includes([73]) ||
-          indicator.includes([57]) ||
-          indicator.includes([75]) ||
-          indicator.includes([135])
-            ? 'red'
-            : ''
-      }"
-      (onSelectionChange)="selectCharts($event, indicator)"
-      >{{ indicator }}</mat-option
+    Back
+  </button>
+
+  <button
+    class="downloadCharts"
+    mat-raised-button
+    color="primary"
+    (click)="downloadPage()"
+  >
+    Download
+  </button>
+
+  <mat-form-field appearance="fill">
+    <mat-select
+      [formControl]="indicators"
+      multiple
+      placeholder="Indicators"
+      [ngModel]="dropdownItems"
     >
-  </mat-select>
-</mat-form-field>
+      <mat-select-trigger>
+        {{ indicators.value ? indicators.value[0] : "" }}
+        <span *ngIf="indicators.value?.length > 1" class="selection">
+          (+{{ indicators.value.length - 1 }}
+          {{ indicators.value?.length === 2 ? "other" : "others" }})
+        </span>
+      </mat-select-trigger>
+      <!-- These are the indicators that are not linked -->
+      <mat-option
+        *ngFor="let indicator of dropdownItems"
+        [value]="indicator"
+        [ngStyle]="{
+          color:
+            indicator.includes([73]) ||
+            indicator.includes([57]) ||
+            indicator.includes([75]) ||
+            indicator.includes([135])
+              ? 'red'
+              : ''
+        }"
+        (onSelectionChange)="selectCharts($event, indicator)"
+        >{{ indicator }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+</div>
+
 <div class="container">
   <!-- componenents on top get rendered first -->
 

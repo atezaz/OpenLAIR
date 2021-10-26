@@ -35,3 +35,40 @@
     grid-column: span 12;
   }
 }
+
+.downloadCharts {
+  margin: 1rem;
+  float: right;
+  z-index: 100;
+  position: fixed;
+  right: 1%;
+}
+
+.backBtn {
+  float: right;
+  margin: 1rem;
+  z-index: 100;
+  position: fixed;
+  right: 8%;
+}
+
+.mat-elevation-z5 {
+  position: relative;
+}
+
+.sticky {
+  position: fixed;
+  top: 0px;
+}
+
+.buttons {
+  height: 70px;
+  background-color: #fff;
+  border: 2px solid #f5f5f5;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  position: fixed;
+  right: 0;
+  float: right;
+  z-index: 99;
+  width: 100%;
+}
