@@ -3,13 +3,8 @@
   <div>
     <span style="padding-bottom: 2px">
       <strong>Learning Events</strong><br />
-      <span
-        class="stepDefine"
-        style="font-size: 14px"
-        id="tooltipEvents"
-        data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}'
-        title=""
-      >
+      <span class="stepDefine" style="font-size: 14px" id="tooltipEvents"
+        data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}' title="">
         <img width="16px" src="assets/images/question.png" /> Click here for
         more details
         <span class="toolBoxCss" id="contentEvents">
@@ -18,21 +13,14 @@
             A learning objective is the desired outcome of a single or multiple
             learning event and is used to establish learning <br />
             activities to achieve the overall learning outcome
-            <a
-              target="_blank"
-              href="https://research.tue.nl/en/publications/teacher-learning-in-the-context-of-educational-innovation-learnin"
-              >[13]</a
-            >. Learning design literature identified eight learning events:
+            <a target="_blank"
+              href="https://research.tue.nl/en/publications/teacher-learning-in-the-context-of-educational-innovation-learnin">[13]</a>.
+            Learning design literature identified eight learning events:
             <br />create, explore, practice, imitate, receive, debate,
             meta-learn/Elf-reflect, and experiment
-            <a target="_blank" href="http://www.labset.net/media/prod/8LEM.pdf"
-              >[1]</a
-            >,
-            <a
-              target="_blank"
-              href="https://www.tandfonline.com/doi/abs/10.1080/10494820701343694"
-              >[2]</a
-            >. <br /><br />
+            <a target="_blank" href="http://www.labset.net/media/prod/8LEM.pdf">[1]</a>,
+            <a target="_blank" href="https://www.tandfonline.com/doi/abs/10.1080/10494820701343694">[2]</a>.
+            <br /><br />
             <img width="800px" src="assets/images/events.png" />
           </p>
         </span>
@@ -40,20 +28,9 @@
     </span>
     <br />
     <mat-form-field>
-      <mat-select
-        class="step1"
-        placeholder="Learning Events"
-        name="Select"
-        [(ngModel)]="selected"
-        multiple
-        #selectionModel="ngModel"
-        (valueChange)="learningValueChange($event)"
-      >
-        <app-select-check-all
-          [model]="selectionModel"
-          [values]="options"
-          (sendCount)="learningValueChange($event)"
-        >
+      <mat-select class="step1" placeholder="Learning Events" name="Select" [(ngModel)]="selected" multiple
+        #selectionModel="ngModel" (valueChange)="learningValueChange($event)">
+        <app-select-check-all [model]="selectionModel" [values]="options" (sendCount)="learningValueChange($event)">
         </app-select-check-all>
         <mat-option *ngFor="let option of options" [value]="option">
           {{ option }}
@@ -63,36 +40,24 @@
   </div>
   <div>
     <strong>Learning Activites</strong><br />
-    <span
-      style="font-size: 14px"
-      id="tooltipActivites"
-      data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}'
-      title=""
-    >
+    <span style="font-size: 14px" id="tooltipActivites"
+      data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}' title="">
       <img width="16px" src="assets/images/question.png" /> Click here for more
       details
       <span class="toolBoxCss" id="contentActivites">
         <p style="text-align: left">
           <strong>Learning Activites</strong><br />
           A study by Gruber et al.
-          <a
-            target="_blank"
-            href="https://www.researchgate.net/publication/334170760_Design_Thinking_for_Technology_Enhanced_Learning"
-            >[3]</a
-          >
+          <a target="_blank"
+            href="https://www.researchgate.net/publication/334170760_Design_Thinking_for_Technology_Enhanced_Learning">[3]</a>
           took the model of learning events and added learning activities<br />
           to identify its outcomes in LD. Learning activities are split into
           in-class methods and tools,<br />
-          and online methods and tools [<a
-            target="_blank"
-            href="https://www.researchgate.net/publication/334170760_Design_Thinking_for_Technology_Enhanced_Learning"
-            >3</a
-          >,
-          <a
-            target="_blank"
-            href="https://www.researchgate.net/publication/222945649_Factors_affecting_teachers'_participation_in_professional_learning_activities"
-            >9</a
-          >]. Examples of in-class methods and tools are exercise, <br />exam,
+          and online methods and tools [<a target="_blank"
+            href="https://www.researchgate.net/publication/334170760_Design_Thinking_for_Technology_Enhanced_Learning">3</a>,
+          <a target="_blank"
+            href="https://www.researchgate.net/publication/222945649_Factors_affecting_teachers'_participation_in_professional_learning_activities">9</a>].
+          Examples of in-class methods and tools are exercise, <br />exam,
           presentation, discussion, demonstration, etc. On the other hand,
           online methods and <br />tools are blogs, wikis, forums, photo and
           audio notes, online tests and quizzes, e-portfolios, <br />etc.
@@ -100,30 +65,17 @@
       </span>
     </span>
     <br /><br />
-    <ng-multiselect-dropdown
-      class="dropdown-menu step2"
-      [placeholder]="'Learning Activities'"
-      [data]="dropdownList"
-      [(ngModel)]="selectedItems"
-      [settings]="dropdownSettings"
-      (onSelect)="onItemSelect($event)"
-      (onSelectAll)="onSelectAll($event)"
-      (onDeSelect)="checkvalue($event)"
-    >
+    <ng-multiselect-dropdown class="dropdown-menu step2" [placeholder]="'Learning Activities'" [data]="dropdownList"
+      [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+      (onSelectAll)="onSelectAll($event)" (onDeSelect)="checkvalue($event)">
     </ng-multiselect-dropdown>
   </div>
   <div>
     <strong>Indicators</strong><br />
-    <span
-      style="font-size: 14px"
-      id="tooltipIndicators"
-      data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}'
-      title=""
-    >
-      <span
-        ><img width="16px" src="assets/images/question.png" /> Click here for
-        more details</span
-      >
+    <span style="font-size: 14px" id="tooltipIndicators"
+      data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}' title="">
+      <span><img width="16px" src="assets/images/question.png" /> Click here for
+        more details</span>
       <span class="toolBoxCss" id="contentIndicators">
         <p style="height: 572px">
           <strong>Indicators</strong><br />
@@ -143,22 +95,13 @@
       </span>
     </span>
     <br /><br />
-    <input
-      class="step3"
-      matInput
-      [(ngModel)]="searchInd"
-      placeholder="Search Indicator"
-      (change)="searchIndicator(searchInd)"
-    />
+    <input class="step3" matInput [(ngModel)]="searchInd" placeholder="Search Indicator"
+      (change)="searchIndicator(searchInd)" />
   </div>
   <div>
     <strong>Metrics</strong><br />
-    <span
-      style="font-size: 14px"
-      id="tooltipMetrics"
-      data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}'
-      title=""
-    >
+    <span style="font-size: 14px" id="tooltipMetrics"
+      data-tooltipster='{"side":"bottom","animation":"fall", "delay":"200", "theme":"tooltipster-shadow"}' title="">
       <img width="16px" src="assets/images/question.png" /> Click here for more
       details
       <span class="toolBoxCss" id="contentMetrics">
@@ -175,42 +118,24 @@
       </span>
     </span>
     <br /><br />
-    <input
-      class="stepMetrics"
-      matInput
-      [(ngModel)]="searchText"
-      placeholder="Search Metrics"
-      (change)="learningEventsChangeOnSearch(searchText)"
-    />
+    <input class="stepMetrics" matInput [(ngModel)]="searchText" placeholder="Search Metrics"
+      (change)="learningEventsChangeOnSearch(searchText)" />
   </div>
 
   <div style="margin-left: 50px">
     <label style="color: gray; font-size: 15px"> Seleted Indicator(s)</label>
-    <ul
-      id="reset"
-      style="line-height: 15%; font-size: 15px"
-      *ngFor="let selectInd of ind_list"
-    >
+    <ul id="reset" style="line-height: 15%; font-size: 15px" *ngFor="let selectInd of ind_list">
       <li>
         {{ selectInd }}
       </li>
     </ul>
     <span style="padding-top: 16px; padding-bottom: 16px">
-      <button
-        class="stepDownload"
-        mat-raised-button
-        color="primary"
-        (click)="getSelectedind(mat_list)"
-      >
+      <button class="stepDownload" mat-raised-button color="primary" (click)="getSelectedind(mat_list)">
         Download JSON
       </button>
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="forwardIndicators(ind_list)"
-      >
+      <!-- <button mat-raised-button color="primary" (click)="forwardIndicators(ind_list)">
         Visualize
-      </button>
+      </button> -->
     </span>
     <button mat-button (click)="reset()">Reset</button>
   </div>
@@ -243,56 +168,38 @@
         {{ learningEvents.LearningEvents }}
       </td>
       <td>
-        <tr
-          class="activities"
-          *ngFor="let LearningActivities of learningEvents.LearningActivities"
-        >
-          <td style="width: 210px">
-            {{ LearningActivities.Name }}
-          </td>
-          <td class="highlightIndicators">
-            <!-- loop for indicators -->
-            <tr *ngFor="let indic of LearningActivities.indicator">
-              <input
-                class="step4"
-                #indicatorCheckbox
-                type="checkbox"
-                value="indic"
-                [checked]="indic.checked"
-                (change)="Checkbox($event, indic)"
-              />
-
-              <a class="sortable stepViewMetrics" (click)="getMeterics(indic)">
-                <span
-                  [innerHTML]="indic.indicatorName | sanitizeHtml: searchInd"
-                >
-                  {{ indic.indicatorName }}
-                </span>
-              </a>
-              <td *ngIf="searchText">
-                <tr>
-                  <a class="sortable">
-                    <span
-                      [innerHTML]="indic.metrics | sanitizeHtml: searchText"
-                    >
-                      {{ indic.metrics }}
-                    </span>
-                  </a>
-                </tr>
-              </td>
-            </tr>
-          </td>
-        </tr>
+    <tr class="activities" *ngFor="let LearningActivities of learningEvents.LearningActivities">
+      <td style="width: 210px">
+        {{ LearningActivities.Name }}
       </td>
+      <td class="highlightIndicators">
+        <!-- loop for indicators -->
+    <tr *ngFor="let indic of LearningActivities.indicator">
+      <input class="step4" #indicatorCheckbox type="checkbox" value="indic" [checked]="indic.checked"
+        (change)="Checkbox($event, indic)" />
+
+      <a class="sortable stepViewMetrics" (click)="getMeterics(indic)">
+        <span [innerHTML]="indic.indicatorName | sanitizeHtml: searchInd">
+          {{ indic.indicatorName }}
+        </span>
+      </a>
+      <td *ngIf="searchText">
+    <tr>
+      <a class="sortable">
+        <span [innerHTML]="indic.metrics | sanitizeHtml: searchText">
+          {{ indic.metrics }}
+        </span>
+      </a>
+    </tr>
+    </td>
+    </tr>
+    </td>
+    </tr>
+    </td>
     </tr>
   </table>
 
-  <a
-    id="back-to-top"
-    class="btn btn-top back-to-top"
-    role="button"
-    (click)="backToTop()"
-  >
+  <a id="back-to-top" class="btn btn-top back-to-top" role="button" (click)="backToTop()">
     <i class="material-icons">arrow_upward</i>
   </a>
 </span>
