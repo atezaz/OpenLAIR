@@ -1,7 +1,7 @@
 
     $(document).ready(function(){
       //  $("#myTourBtn").hide();
-       // if($('span').is('.OpenLAIR_Home')){      //  Not run the demo if it is not home page
+       // if($('span').is('.tool_Home')){      //  Not run the demo if it is not home page
         //  setTimeout(function(){  myTour(); }, 1500);
         //  $("#myTourBtn").show();
        // }
