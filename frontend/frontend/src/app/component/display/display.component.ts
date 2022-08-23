@@ -57,7 +57,7 @@ export class DisplayComponent implements OnInit {
     private router: Router,
     private snackbar: MatSnackBar,
     public dialog: MatDialog,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
   ) {}
 
   ngOnInit() {
@@ -277,35 +277,39 @@ export class DisplayComponent implements OnInit {
     }
   }
 
+
+  download(sList, mimeType, filename){
+    if (sList.length > 0) {
+      var content = "";
+      let data = sList;
+      data.forEach(myFunction);
+
+      function myFunction(item, index) {
+        content +=  index+1 + " Indicator Name: " + item.indicatorName + "\n\t" + "Metrics: " + item.metrics + "\n\n";
+        console.log(item.indicatorName + item.metrics);
+      }
+      var a = document.createElement('a')
+      var blob = new Blob([content], {type: mimeType})
+      var url = URL.createObjectURL(blob)
+      a.setAttribute('href', url)
+      a.setAttribute('download', filename)
+      a.click()
+    } else {
+      window.alert("No indicator is selected");
+    }
+  
+  }
+
+
   getSelectedind = (x) => {
+    if (x.length > 0) {
     const indicator: any = [];
     let data = x;
-
-    //printing senario
-
-    console.log(
-      "For your particular senario your learning objective(s) is/are ",
-      this.selectedevent[0]
-    );
-    console.log("The learning activities are ", this.selectedItems[0]);
-    console.log("The possible indicators are ", data[0].indicatorName);
-    console.log("and there metrics are ", data[0].metrics);
-
     data.forEach((element) => {
       const o = { [element.indicatorName]: element.metrics.split(",") };
-
       indicator.push(o);
-
       /// other properties and values
     });
-
-    //console.log(indicator);
-
-    // console.log(new_obj);
-    //     let json_string=JSON.stringify(new_obj);
-
-    //     let array2 = JSON.parse("[" +  json_string + "]");
-    //    console.log(array2);
 
     // Convert the text to BLOB.
     let textToBLOB = new Blob(
@@ -317,7 +321,7 @@ export class DisplayComponent implements OnInit {
       { type: "application/json" }
     );
 
-    let sFileName = "indicators.json"; // The file to save the data.
+    let sFileName = "indicators JSON.json"; // The file to save the data.
 
     let newLink = document.createElement("a");
     newLink.download = sFileName;
@@ -328,9 +332,13 @@ export class DisplayComponent implements OnInit {
       newLink.style.display = "none";
       // document.body.appendChild(newLink);
     }
-
     newLink.click();
+  }
+  else {
+    window.alert("No indicator is selected");
+  }
   };
+
   reset() {
     this.ind_list = [];
     this.mat_list = [];
@@ -349,6 +357,9 @@ export class DisplayComponent implements OnInit {
     }
     localStorage.removeItem("check");
     this.uncheckAll();
+   // this.router.navigate(['./display/data']);
+  // location.reload();
+   location.href = "/";
   }
 
   /*

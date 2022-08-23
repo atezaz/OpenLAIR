@@ -104,8 +104,11 @@ export class AddDataComponent implements OnInit {
 
     })
 
-    this.dataEntryForm.reset(); // clear from entry
-    location.reload(); // reload web page
+    //this.dataEntryForm.reset(); // clear from entry
+    
+    //location.reload(); // reload web page
+
+    window.alert("Indicator added successfully!");
   }
 
 

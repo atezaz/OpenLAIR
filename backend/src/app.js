@@ -23,7 +23,7 @@ var mongo = require('mongodb');
 
 var MongoClient = require('mongodb').MongoClient;
 
-var mongoURL = process.env["MONGO_URL"] || "mongodb://localhost:27017/";
+var mongoURL =  "mongodb://localhost:27017/"; //process.env["MONGO_URL"] ||
 const PORT = process.env.PORT || 3001;
 console.log(PORT)
 const BASE_ROUTE = "openlair"; //var url = "mongodb://localhost:27017/";
@@ -91,21 +91,21 @@ router.route('/display/data').get((req,res)=>{
 ////////////////Read text from pdf //////////////
 
  var fs=require('fs');
-var PDFParser=require('pdf-parse');
+//var PDFParser=require('pdf-parse');
 
-const pdffile=fs.readFileSync('./upload/gAAg-dKy8uBJZvuK0VkiW8iX.pdf');
+//const pdffile=fs.readFileSync('./upload/gAAg-dKy8uBJZvuK0VkiW8iX.pdf');
 
 ////////////// data cleaning ///////////////////
 
-PDFParser(pdffile).then(function(data){
+//PDFParser(pdffile).then(function(data){
   //console.log(data.numpages)
-  var extractData=data.text;
-  var removepunctuation = extractData.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
-  var removeSquBrac= removepunctuation.replace(/[0-9]/g, '');
-  var words_act = removeSquBrac.split(/\W+/);
-  const removeStopwords_act = stopWord.removeStopwords(words_act)
+ // var extractData=data.text;
+ // var removepunctuation = extractData.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
+ // var removeSquBrac= removepunctuation.replace(/[0-9]/g, '');
+ // var words_act = removeSquBrac.split(/\W+/);
+ // const removeStopwords_act = stopWord.removeStopwords(words_act)
  // console.log(removeStopwords_act)
-})
+//})
 
 /////////////Instruction for search data/////////////////
 
@@ -151,7 +151,6 @@ router.route('/getsearchindicator').post((req,res)=>{
       }).toArray(function (error, filterAct) {
         if (!error) {
           if (filterAct) {
-
 
             let position = filterAct[0].LearningActivities.findIndex(item => item.Name == act);
 
@@ -354,7 +353,7 @@ router.route('/getsearchindicator').post((req,res)=>{
 
         }
       });
-    } else if (req.body.LearningEvents == "Meta-learn") {
+    } else if (req.body.LearningEvents == "Meta-learn or Self-reflect") {
       db.collection("treeStructure").find({
         'LearningActivities.Name': act
       }).toArray(function (error, filterAct) {
@@ -364,7 +363,7 @@ router.route('/getsearchindicator').post((req,res)=>{
             const str1 = 'LearningActivities';
             const learningAct = str1.concat(".", position, ".", "indicator");
             db.collection("treeStructure").updateOne({
-                LearningEvents: "Meta-learn"
+                LearningEvents: "Meta-learn or Self-reflect"
 
               }, {
                 $push: {

@@ -27,7 +27,7 @@
       </span>
     </span>
     <br />
-    <mat-form-field>
+    <mat-form-field >
       <mat-select class="step1" placeholder="Learning Events" name="Select" [(ngModel)]="selected" multiple
         #selectionModel="ngModel" (valueChange)="learningValueChange($event)">
         <app-select-check-all [model]="selectionModel" [values]="options" (sendCount)="learningValueChange($event)">
@@ -65,7 +65,7 @@
       </span>
     </span>
     <br /><br />
-    <ng-multiselect-dropdown class="dropdown-menu step2" [placeholder]="'Learning Activities'" [data]="dropdownList"
+    <ng-multiselect-dropdown class="step2" [placeholder]="'Learning Activities'" [data]="dropdownList"
       [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
       (onSelectAll)="onSelectAll($event)" (onDeSelect)="checkvalue($event)">
     </ng-multiselect-dropdown>
@@ -130,14 +130,21 @@
       </li>
     </ul>
     <span style="padding-top: 16px; padding-bottom: 16px">
-      <button class="stepDownload" mat-raised-button color="primary" (click)="getSelectedind(mat_list)">
-        Download JSON
+      <button class="stepVisualize buttonOpenLAIR" (click)="forwardIndicators(ind_list)">
+        <i class="fa-solid fa-display"></i>  &nbsp; Visualize
+      </button> 
+      <button class="stepDownload buttonOpenLAIR" (click)="getSelectedind(mat_list)"><i class="fa-solid fa-download"></i> &nbsp;  JSON
       </button>
-      <!-- <button mat-raised-button color="primary" (click)="forwardIndicators(ind_list)">
-        Visualize
-      </button> -->
+      
+      <button class="stepDownloadText buttonOpenLAIR" (click)="download(mat_list, 'text/plain', 'Indicators TEXT.txt')">
+        <i class="fa-solid fa-download"></i> &nbsp; TEXT
+        </button>
+
+        <button class="stepReset buttonRed"  (click)="reset()"><i class="fa-solid fa-arrow-rotate-right"></i> &nbsp; Reset</button>
     </span>
-    <button mat-button (click)="reset()">Reset</button>
+
+   <!-- <button class="stepReset buttonOpenLAIR"  (click)="reset()"><img width="70px" src="assets/images/reset.png"/></button>  -->
+
   </div>
 
   <ng-template #secondDialog>

@@ -30,14 +30,12 @@
   margin: 16px;
   font-weight: bold;
   font-size: 16px;
-
-
 }
 
 
 #dropdown>mat-select {
   height: 20px;
-  width: 200px;
+  width: 300px;
   padding-left: 25px;
   font-size: 16px;
   font-weight: normal;
@@ -67,7 +65,7 @@ option {
 
 #activities>mat-select {
   height: 20px;
-  width: 200px;
+  width: 300px;
   padding-left: 25px;
   font-size: 16px;
   font-weight: normal;
@@ -105,7 +103,7 @@ option {
   font-weight: normal;
 
   margin-left: 32px;
-  width: 300px;
+  width: 500px;
   height: 30px;
   font-weight: bold;
   font-size: 16px;
@@ -169,5 +167,6 @@ option {
   margin-top: 16px;
   font-weight: bold;
   font-size: 16px;
+  width: 500px;
 
 }

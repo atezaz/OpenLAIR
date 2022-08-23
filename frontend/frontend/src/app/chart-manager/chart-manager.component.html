@@ -1,33 +1,14 @@
-<div
-  class="buttons"
-  id="btn-menu"
-  [ngClass]="{ 'mat-elevation-z5': true, sticky: isSticky }"
->
-  <button
-    class="backBtn"
-    mat-raised-button
-    color="primary"
-    routerLink="/display/data"
-  >
+<div class="buttons" id="btn-menu" [ngClass]="{ 'mat-elevation-z5': true, sticky: isSticky }">
+  <button class="backBtn buttonOpenLAIR" routerLink="/display/data">
     Back
   </button>
 
-  <button
-    class="downloadCharts"
-    mat-raised-button
-    color="primary"
-    (click)="downloadPage()"
-  >
+  <button class="downloadCharts buttonOpenLAIR" (click)="downloadPage()">
     Download
   </button>
 
   <mat-form-field appearance="fill">
-    <mat-select
-      [formControl]="indicators"
-      multiple
-      placeholder="Indicators"
-      [ngModel]="dropdownItems"
-    >
+    <mat-select [formControl]="indicators" multiple placeholder="Indicators" [ngModel]="dropdownItems">
       <mat-select-trigger>
         {{ indicators.value ? indicators.value[0] : "" }}
         <span *ngIf="indicators.value?.length > 1" class="selection">
@@ -36,10 +17,7 @@
         </span>
       </mat-select-trigger>
       <!-- These are the indicators that are not linked -->
-      <mat-option
-        *ngFor="let indicator of dropdownItems"
-        [value]="indicator"
-        [ngStyle]="{
+      <mat-option *ngFor="let indicator of dropdownItems" [value]="indicator" [ngStyle]="{
           color:
             indicator.includes([73]) ||
             indicator.includes([57]) ||
@@ -47,10 +25,7 @@
             indicator.includes([135])
               ? 'red'
               : ''
-        }"
-        (onSelectionChange)="selectCharts($event, indicator)"
-        >{{ indicator }}</mat-option
-      >
+        }" (onSelectionChange)="selectCharts($event, indicator)">{{ indicator }}</mat-option>
     </mat-select>
   </mat-form-field>
 </div>
@@ -59,76 +34,58 @@
   <!-- componenents on top get rendered first -->
 
   <!-- Student interaction patterns -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[127]') || referenceNumbers.includes('[121]')
-    "
-  >
+    ">
     <app-student-interaction-patterns></app-student-interaction-patterns>
   </div>
 
   <!-- Reading Analytics -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[134]') ||
       referenceNumbers.includes('[114]') ||
       referenceNumbers.includes('[128]')
-    "
-  >
+    ">
     <app-reading-analytics></app-reading-analytics>
   </div>
 
   <!-- Competency -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[31]') ||
       referenceNumbers.includes('[46]') ||
       referenceNumbers.includes('[98]')
-    "
-  >
+    ">
     <app-competency></app-competency>
   </div>
 
   <!-- Learning progress -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[62]') ||
       referenceNumbers.includes('[110]') ||
       referenceNumbers.includes('[51]')
-    "
-  >
+    ">
     <app-learning-progress></app-learning-progress>
   </div>
 
   <!-- Writing Analytics -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[61]') ||
       referenceNumbers.includes('[48]') ||
       referenceNumbers.includes('[89]') ||
       referenceNumbers.includes('[85]')
-    "
-  >
+    ">
     <app-writing-analytics></app-writing-analytics>
   </div>
 
   <!-- Discourse Analytics -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[24]') ||
       referenceNumbers.includes('[27]') ||
       referenceNumbers.includes('[49]') ||
       referenceNumbers.includes('[142]') ||
       referenceNumbers.includes('[80]') ||
       referenceNumbers.includes('[88]')
-    "
-  >
+    ">
     <app-discussion-quality></app-discussion-quality>
   </div>
 
@@ -138,14 +95,11 @@
   </div>
 
   <!-- Video Analytics -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[138]') ||
       referenceNumbers.includes('[72]') ||
       referenceNumbers.includes('[116]')
-    "
-  >
+    ">
     <app-video-engagements></app-video-engagements>
   </div>
 
@@ -161,9 +115,7 @@
 
   <!--  Predictive analytics (Dropping out )-->
 
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[59]') ||
       referenceNumbers.includes('[79]') ||
       referenceNumbers.includes('[99]') ||
@@ -171,8 +123,7 @@
       referenceNumbers.includes('[64]') ||
       referenceNumbers.includes('[71]') ||
       referenceNumbers.includes('[131]')
-    "
-  >
+    ">
     <app-droppingout></app-droppingout>
   </div>
   <!-- Time distribution -->
@@ -181,38 +132,29 @@
   </div>
 
   <!-- Time Planning -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[47]') ||
       referenceNumbers.includes('[68]') ||
       referenceNumbers.includes('[125]')
-    "
-  >
+    ">
     <app-time-planning></app-time-planning>
   </div>
 
   <!-- Student comparison -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[130]') ||
       referenceNumbers.includes('[126]') ||
       referenceNumbers.includes('[129]') ||
       referenceNumbers.includes('[25]') ||
       referenceNumbers.includes('[50]')
-    "
-  >
+    ">
     <app-student-comparison></app-student-comparison>
   </div>
 
   <!-- Engagement and Performance -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[69]') || referenceNumbers.includes('[86]')
-    "
-  >
+    ">
     <app-engagement-performance></app-engagement-performance>
   </div>
 
@@ -222,14 +164,11 @@
   </div>
 
   <!-- Game analytics -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[45]') ||
       referenceNumbers.includes('[43]') ||
       referenceNumbers.includes('[104]')
-    "
-  >
+    ">
     <app-gamification></app-gamification>
   </div>
 
@@ -239,12 +178,9 @@
   </div>
 
   <!--  Procrastination  -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[102]') || referenceNumbers.includes('[107]')
-    "
-  >
+    ">
     <app-procrastination></app-procrastination>
   </div>
 
@@ -254,22 +190,17 @@
   </div>
 
   <!-- Clustering -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[66]') ||
       referenceNumbers.includes('[120]') ||
       referenceNumbers.includes('[113]') ||
       referenceNumbers.includes('[29]')
-    "
-  >
+    ">
     <app-clustering></app-clustering>
   </div>
 
   <!-- Final grade prediction -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[28]') ||
       referenceNumbers.includes('[83]') ||
       referenceNumbers.includes('[78]') ||
@@ -279,8 +210,7 @@
       referenceNumbers.includes('[105]') ||
       referenceNumbers.includes('[81]') ||
       referenceNumbers.includes('[119]')
-    "
-  >
+    ">
     <app-final-grade-prediction></app-final-grade-prediction>
   </div>
 
@@ -290,12 +220,9 @@
   </div>
 
   <!-- Social network analysis -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[90]') || referenceNumbers.includes('[52]')
-    "
-  >
+    ">
     <app-social-network-analysis></app-social-network-analysis>
   </div>
 
@@ -305,21 +232,16 @@
   </div>
 
   <!-- Learning behaviour patterns -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[111]') ||
       referenceNumbers.includes('[132]') ||
       referenceNumbers.includes('[118]')
-    "
-  >
+    ">
     <app-learning-behavior-patterns></app-learning-behavior-patterns>
   </div>
 
   <!-- Passing rate prediction -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[26]') ||
       referenceNumbers.includes('[56]') ||
       referenceNumbers.includes('[96]') ||
@@ -327,18 +249,14 @@
       referenceNumbers.includes('[117]') ||
       referenceNumbers.includes('[143]') ||
       referenceNumbers.includes('[144]')
-    "
-  >
+    ">
     <app-passing-rate-prediction></app-passing-rate-prediction>
   </div>
 
   <!--  Feedback (Self-regulation)-->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[41]') || referenceNumbers.includes('[91]')
-    "
-  >
+    ">
     <app-feedback></app-feedback>
   </div>
 
@@ -348,45 +266,33 @@
   </div>
 
   <!-- Affective-State -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[32]') ||
       referenceNumbers.includes('[84]') ||
       referenceNumbers.includes('[36]') ||
       referenceNumbers.includes('[87]')
-    "
-  >
+    ">
     <app-affective-state></app-affective-state>
   </div>
 
   <!-- Course difficulty -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[77]') || referenceNumbers.includes('[133]')
-    "
-  >
+    ">
     <app-course-difficulty></app-course-difficulty>
   </div>
 
   <!-- Teacher curriculum usage -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[65]') || referenceNumbers.includes('[58]')
-    "
-  >
+    ">
     <app-curriculum-usage></app-curriculum-usage>
   </div>
 
   <!-- Presentation skills -->
-  <div
-    class="main-content"
-    *ngIf="
+  <div class="main-content" *ngIf="
       referenceNumbers.includes('[35]') || referenceNumbers.includes('[40]')
-    "
-  >
+    ">
     <app-presentation-skills></app-presentation-skills>
   </div>
 </div>
