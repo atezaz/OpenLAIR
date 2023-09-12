@@ -1,0 +1,68 @@
+<!--Data Entry form -->
+
+<div style="margin: auto;">
+  <form [formGroup]="dataEntryForm">
+
+    <div id="title">
+      Add NEW Indicators and their Metrics
+    </div>
+   
+    <label *ngIf="successfulMessage" >
+      <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+      <div class="alert success">
+        <span class="alertClose">X</span>
+        <span class="alertText" [innerHTML]="successfulMessage">
+        <br class="clear"/></span>
+      </div>
+    </label>
+
+    <div id="dropdown">
+      <label>Learning Events</label>
+      <mat-select placeholder="Learning Events" (selectionChange)="learningValueChange($event.value)"
+        formControlName="learningEvents">
+        <mat-option *ngFor="let learningEvent of options" [value]="learningEvent">
+          {{ learningEvent }}
+        </mat-option>
+      </mat-select>
+      
+      <button style="padding: 6px 8px 6px 8px; float: right; margin-right: 8px; background-image: linear-gradient(45deg, #8e1e22 10%, #edcfcf 51%, #8e1e22 100%) !important; box-shadow: 2px 4px 5px 0px #ead8d8;" class="buttonLaTool" (click)='logout()'>Logout</button>
+      <span style="float: right; margin-right: 16px; margin-top: 17px;" *ngIf="CUserName">
+       Welcome, {{CUserName}}
+      </span>
+    </div>
+
+    <div id="activities">
+      <label for="">Learning Activities</label>
+      <mat-select formControlName="learningActivities" [(ngModel)]="LaOptionValue" placeholder="Learning Activities" (selectionChange)="onActivityValueChange($event.value)">
+        <mat-option *ngFor="let LearningAct of dropdownList" [value]="LearningAct" >
+         {{ LearningAct}}
+        </mat-option>
+      </mat-select>
+      <div style="color: rgb(4, 117, 14); margin-left: 212px; margin-top: 7px;" *ngIf="similarActivityMessage" [innerHTML]="similarActivityMessage"></div>
+    </div>
+
+    <div formArrayName="indicator">
+      <div *ngFor="let indicator of indicatorControls; let i = index" [formGroupName]="i">
+        <div id="indicators">
+          <label class="indicatorName">Indicators</label>
+          <input type="text" formControlName="indicatorName" placeholder="Indicator Name [ref]" required/>
+        </div>
+
+        <div class="formfield">
+          <label class="metrics">Metrics</label>
+          <textarea class="text" cols="30" rows="10" type="text" formControlName="metrics"
+            placeholder="Metrics must be comma seperated" required></textarea>
+        </div>
+      </div>
+
+    </div>
+    <div id="savebtn">
+      <button type="submit" class="buttonLaTool" 
+        (click)='addData(learningEvents,learningActivities,indicator,metrics)'
+        [disabled]="dataEntryForm.pristine || dataEntryForm.invalid">Save</button>
+    
+        
+      </div>
+  </form>
+
+</div>

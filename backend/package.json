@@ -3,20 +3,16 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "build": "babel src --out-dir dist",
+    "build": "node src --out-dir dist",
     "serve": "node dist/app.js",
-    "dev": "babel-watch src/app.js",
-    "start": "babel-watch src/app.js"
+    "dev": "node app.js",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.0.0-rc.1",
-    "@babel/core": "^7.13.14",
-    "@babel/node": "^7.0.0-rc.1",
-    "@babel/preset-env": "^7.13.12",
-    "babel-watch": "^7.4.1"
+   
   },
   "dependencies": {
     "connect-multiparty": "^2.2.0",

@@ -1,0 +1,50 @@
+<div class="header" id="header">
+  <mat-toolbar style="height: 72px;" color="primary">
+    <span class="step0" >
+      <span id="tooltipHeaderLogo" data-tooltipster='{"side":"right","animation":"grow", "delay":"200", "theme":"tooltipster-shadow"}'>
+        <a><img routerLink="/" class="HeaderLogo"  style="height: 66px; padding-top: 9px" src="assets/images/logo.png" />
+          <span id="contentHeaderLogo">
+            <!-- <p>
+              <strong>OpenLAIR</strong><br /><br />
+              Acronym [Blinded]<br />
+            </p> -->
+            <p>
+              <strong>OpenLAIR <a target="_blank" href="https://www.researchgate.net/publication/360034339_What_Indicators_Can_I_Serve_You_with_An_Evaluation_of_a_Research-Driven_Learning_Analytics_Indicator_Repository">(Ahmad et al., 2022)</a> and <a target="_blank" href="https://www.researchgate.net/publication/362256819_Connecting_the_dots_-_A_literature_review_on_learning_analytics_indicators_from_a_learning_design_perspective">(Ahmad et al., 2022)</a> </strong><br /><br />
+              Open Learning Analytics Indicator Repository<br />
+            </p>
+          </span>
+      </a>
+    </span>
+    </span>
+    
+    
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <span id="tooltipHeaderLogo2" data-tooltipster='{"side":"right","animation":"grow", "delay":"200", "theme":"tooltipster-shadow"}'>
+      <button class="buttonHead" (click)="reset()"><i class="fa-solid fa-arrow-rotate-right"></i> Click here if the below TABLE is empty
+        <span id="contentHeaderLogo2" >
+          <p>
+            Please wait for 10 seconds
+          </p>
+        </span>
+
+      </button>
+    </span>
+    
+
+    <!-- <a style="color: white; font-size: 14px;" (click)="reset()"> Click here if the table is empty</a>           reset()-->
+    <span class="example-spacer"></span>
+
+
+    <button class="buttonHead" (click)='addIndicators()'><img style="width: 17px;"
+      src="assets/images/add.png" />&nbsp; Add Indicators</button>
+
+    <!-- <a href="#" onclick="myTour()">Start Tour</a> -->
+    <button class="stepReferences buttonHead" (click)='references()'><img style="width: 14px;"
+        src="assets/images/ref.png" />&nbsp; References</button>
+    
+    <!-- <a mat-button class="stepReferences" href="https://atezaz.github.io/references.html" target="_blank">References</a> -->
+    <button class="stepStartTour buttonHead" id="myTourBtn">
+      <i class="fa-solid fa-flag"></i>&nbsp; Start Tour
+    </button>
+  </mat-toolbar>
+</div>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OpenLAIR</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="" href="assets/images/tLogo.png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+ <!-- Tour (website guide) into.css -->
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.1.0/introjs.css" rel="stylesheet">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+  <!-- Tooltip -->
+ <script src="https://cdn.jsdelivr.net/jquery.tooltipster/4.0.5/js/tooltipster.bundle.min.js" ></script>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.tooltipster/4.0.5/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.tooltipster/4.0.5/css/tooltipster.bundle.min.css">
+
+ <!-- Font Awesome -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+ <style>
+  
+
+  .buttonRed:active {
+  transform: scale(.80);
+}
+
+.tooltip_templates { display: none; }
+  #tooltip9 #tooltip1 #tooltip2{
+  width: 10px;
+  }
+
+  .highlight {   background-color: yellow;  }
+
+  .tooltipster-box
+    {
+      box-shadow: 2px 6px 19px 10px #4c4c4e71 !important;
+      border-radius: 15px !important;
+    }
+
+
+
+  </style>
+  <!-- Tooltip custom JS -->
+ <script src="assets/js/tooltipJS.js" ></script>
+ <script>
+    //function highlight(text) {
+      //  var inputText = document.getElementById("highlightIndicators");
+     //   var innerHTML = inputText.innerHTML;
+      //  var index = innerHTML.indexOf(text);
+      //  if (index >= 0) { 
+      //  innerHTML = innerHTML.substring(0,index) + "<span class='highlight'>" + innerHTML.substring(index,index+text.length) + "</span>" + innerHTML.substring(index + text.length);
+      //  inputText.innerHTML = innerHTML;
+      //  }
+    //  }
+ </script>
+
+
+</head>
+<body>
+  <app-root></app-root>
+
+  <!-- Tour (website guide) into.js --> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.1.0/intro.js"></script>
+  <script type="text/javascript"  src="assets/js/tourJS.js"> </script>
+</body>
+</html>
